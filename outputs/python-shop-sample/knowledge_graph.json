@@ -1,0 +1,948 @@
+{
+  "meta": {
+    "schema_version": 2,
+    "target": "python-shop-sample",
+    "language": "python",
+    "languages": {
+      "python": 6
+    },
+    "source_path": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase/python-shop-sample",
+    "hash": "c10f6d43911529f4",
+    "generated_at": "2026-09-17T08:10:03.406357+00:00",
+    "node_count": 33,
+    "edge_count": 66,
+    "parse_failures": [],
+    "codebase_root": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase"
+  },
+  "nodes": [
+    {
+      "id": "python-shop-sample/app.py",
+      "name": "app.py",
+      "type": "file",
+      "language": "python",
+      "file": "python-shop-sample/app.py",
+      "line_start": 1,
+      "line_end": 21,
+      "parent": null,
+      "hash": "882641a7c343f4d6"
+    },
+    {
+      "id": "python-shop-sample/app.py::main/0",
+      "name": "main",
+      "type": "function",
+      "language": "python",
+      "file": "python-shop-sample/app.py",
+      "line_start": 8,
+      "line_end": 17,
+      "parent": "python-shop-sample/app.py",
+      "arity": 0,
+      "signature": "def main()",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/checkout_service.py",
+      "name": "checkout_service.py",
+      "type": "file",
+      "language": "python",
+      "file": "python-shop-sample/checkout_service.py",
+      "line_start": 1,
+      "line_end": 30,
+      "parent": null,
+      "hash": "86b616878c28888d"
+    },
+    {
+      "id": "python-shop-sample/checkout_service.py::CheckoutService",
+      "name": "CheckoutService",
+      "type": "class",
+      "language": "python",
+      "file": "python-shop-sample/checkout_service.py",
+      "line_start": 6,
+      "line_end": 30,
+      "parent": "python-shop-sample/checkout_service.py",
+      "signature": "class CheckoutService"
+    },
+    {
+      "id": "python-shop-sample/checkout_service.py::CheckoutService::__init__/4",
+      "name": "__init__",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/checkout_service.py",
+      "line_start": 7,
+      "line_end": 15,
+      "parent": "python-shop-sample/checkout_service.py::CheckoutService",
+      "arity": 4,
+      "signature": "def __init__(self, orders: OrderRepository, inventory: InventoryService, payments: PaymentGateway)",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/checkout_service.py::CheckoutService::checkout/2",
+      "name": "checkout",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/checkout_service.py",
+      "line_start": 17,
+      "line_end": 30,
+      "parent": "python-shop-sample/checkout_service.py::CheckoutService",
+      "arity": 2,
+      "signature": "def checkout(self, order_id: str)",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/inventory.py",
+      "name": "inventory.py",
+      "type": "file",
+      "language": "python",
+      "file": "python-shop-sample/inventory.py",
+      "line_start": 1,
+      "line_end": 16,
+      "parent": null,
+      "hash": "97b64484fb781283"
+    },
+    {
+      "id": "python-shop-sample/inventory.py::OutOfStockError",
+      "name": "OutOfStockError",
+      "type": "class",
+      "language": "python",
+      "file": "python-shop-sample/inventory.py",
+      "line_start": 1,
+      "line_end": 2,
+      "parent": "python-shop-sample/inventory.py",
+      "signature": "class OutOfStockError(Exception)"
+    },
+    {
+      "id": "python-shop-sample/inventory.py::InventoryService",
+      "name": "InventoryService",
+      "type": "class",
+      "language": "python",
+      "file": "python-shop-sample/inventory.py",
+      "line_start": 5,
+      "line_end": 16,
+      "parent": "python-shop-sample/inventory.py",
+      "signature": "class InventoryService"
+    },
+    {
+      "id": "python-shop-sample/inventory.py::InventoryService::__init__/2",
+      "name": "__init__",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/inventory.py",
+      "line_start": 6,
+      "line_end": 7,
+      "parent": "python-shop-sample/inventory.py::InventoryService",
+      "arity": 2,
+      "signature": "def __init__(self, stock)",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/inventory.py::InventoryService::reserve/3",
+      "name": "reserve",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/inventory.py",
+      "line_start": 9,
+      "line_end": 13,
+      "parent": "python-shop-sample/inventory.py::InventoryService",
+      "arity": 3,
+      "signature": "def reserve(self, item: str, quantity: int)",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/inventory.py::InventoryService::release/3",
+      "name": "release",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/inventory.py",
+      "line_start": 15,
+      "line_end": 16,
+      "parent": "python-shop-sample/inventory.py::InventoryService",
+      "arity": 3,
+      "signature": "def release(self, item: str, quantity: int)",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/models.py",
+      "name": "models.py",
+      "type": "file",
+      "language": "python",
+      "file": "python-shop-sample/models.py",
+      "line_start": 1,
+      "line_end": 11,
+      "parent": null,
+      "hash": "aad59f3afeb457ab"
+    },
+    {
+      "id": "python-shop-sample/models.py::Order",
+      "name": "Order",
+      "type": "class",
+      "language": "python",
+      "file": "python-shop-sample/models.py",
+      "line_start": 5,
+      "line_end": 11,
+      "parent": "python-shop-sample/models.py",
+      "signature": "class Order"
+    },
+    {
+      "id": "python-shop-sample/models.py::Order::order_id",
+      "name": "order_id",
+      "type": "field",
+      "language": "python",
+      "file": "python-shop-sample/models.py",
+      "line_start": 6,
+      "line_end": 6,
+      "parent": "python-shop-sample/models.py::Order",
+      "signature": "order_id: str",
+      "value_type": "str"
+    },
+    {
+      "id": "python-shop-sample/models.py::Order::user_id",
+      "name": "user_id",
+      "type": "field",
+      "language": "python",
+      "file": "python-shop-sample/models.py",
+      "line_start": 7,
+      "line_end": 7,
+      "parent": "python-shop-sample/models.py::Order",
+      "signature": "user_id: str",
+      "value_type": "str"
+    },
+    {
+      "id": "python-shop-sample/models.py::Order::item",
+      "name": "item",
+      "type": "field",
+      "language": "python",
+      "file": "python-shop-sample/models.py",
+      "line_start": 8,
+      "line_end": 8,
+      "parent": "python-shop-sample/models.py::Order",
+      "signature": "item: str",
+      "value_type": "str"
+    },
+    {
+      "id": "python-shop-sample/models.py::Order::quantity",
+      "name": "quantity",
+      "type": "field",
+      "language": "python",
+      "file": "python-shop-sample/models.py",
+      "line_start": 9,
+      "line_end": 9,
+      "parent": "python-shop-sample/models.py::Order",
+      "signature": "quantity: int",
+      "value_type": "int"
+    },
+    {
+      "id": "python-shop-sample/models.py::Order::total_cents",
+      "name": "total_cents",
+      "type": "field",
+      "language": "python",
+      "file": "python-shop-sample/models.py",
+      "line_start": 10,
+      "line_end": 10,
+      "parent": "python-shop-sample/models.py::Order",
+      "signature": "total_cents: int",
+      "value_type": "int"
+    },
+    {
+      "id": "python-shop-sample/models.py::Order::status",
+      "name": "status",
+      "type": "field",
+      "language": "python",
+      "file": "python-shop-sample/models.py",
+      "line_start": 11,
+      "line_end": 11,
+      "parent": "python-shop-sample/models.py::Order",
+      "signature": "status: str = 'PENDING'",
+      "value_type": "str"
+    },
+    {
+      "id": "python-shop-sample/order_repo.py",
+      "name": "order_repo.py",
+      "type": "file",
+      "language": "python",
+      "file": "python-shop-sample/order_repo.py",
+      "line_start": 1,
+      "line_end": 22,
+      "parent": null,
+      "hash": "1f92aaa699771c22"
+    },
+    {
+      "id": "python-shop-sample/order_repo.py::OrderRepository",
+      "name": "OrderRepository",
+      "type": "class",
+      "language": "python",
+      "file": "python-shop-sample/order_repo.py",
+      "line_start": 4,
+      "line_end": 22,
+      "parent": "python-shop-sample/order_repo.py",
+      "signature": "class OrderRepository"
+    },
+    {
+      "id": "python-shop-sample/order_repo.py::OrderRepository::__init__/1",
+      "name": "__init__",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/order_repo.py",
+      "line_start": 5,
+      "line_end": 6,
+      "parent": "python-shop-sample/order_repo.py::OrderRepository",
+      "arity": 1,
+      "signature": "def __init__(self)",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/order_repo.py::OrderRepository::save/2",
+      "name": "save",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/order_repo.py",
+      "line_start": 8,
+      "line_end": 9,
+      "parent": "python-shop-sample/order_repo.py::OrderRepository",
+      "arity": 2,
+      "signature": "def save(self, order: Order)",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/order_repo.py::OrderRepository::find_by_id/2",
+      "name": "find_by_id",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/order_repo.py",
+      "line_start": 11,
+      "line_end": 12,
+      "parent": "python-shop-sample/order_repo.py::OrderRepository",
+      "arity": 2,
+      "signature": "def find_by_id(self, order_id: str)",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/order_repo.py::OrderRepository::mark_paid/2",
+      "name": "mark_paid",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/order_repo.py",
+      "line_start": 14,
+      "line_end": 18,
+      "parent": "python-shop-sample/order_repo.py::OrderRepository",
+      "arity": 2,
+      "signature": "def mark_paid(self, order_id: str)",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/order_repo.py::OrderRepository::status/2",
+      "name": "status",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/order_repo.py",
+      "line_start": 20,
+      "line_end": 22,
+      "parent": "python-shop-sample/order_repo.py::OrderRepository",
+      "arity": 2,
+      "signature": "def status(self, order_id: str)",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/payment.py",
+      "name": "payment.py",
+      "type": "file",
+      "language": "python",
+      "file": "python-shop-sample/payment.py",
+      "line_start": 1,
+      "line_end": 17,
+      "parent": null,
+      "hash": "bc0623e4b7187232"
+    },
+    {
+      "id": "python-shop-sample/payment.py::PaymentError",
+      "name": "PaymentError",
+      "type": "class",
+      "language": "python",
+      "file": "python-shop-sample/payment.py",
+      "line_start": 1,
+      "line_end": 2,
+      "parent": "python-shop-sample/payment.py",
+      "signature": "class PaymentError(Exception)"
+    },
+    {
+      "id": "python-shop-sample/payment.py::PaymentGateway",
+      "name": "PaymentGateway",
+      "type": "class",
+      "language": "python",
+      "file": "python-shop-sample/payment.py",
+      "line_start": 5,
+      "line_end": 17,
+      "parent": "python-shop-sample/payment.py",
+      "signature": "class PaymentGateway"
+    },
+    {
+      "id": "python-shop-sample/payment.py::PaymentGateway::__init__/1",
+      "name": "__init__",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/payment.py",
+      "line_start": 6,
+      "line_end": 7,
+      "parent": "python-shop-sample/payment.py::PaymentGateway",
+      "arity": 1,
+      "signature": "def __init__(self)",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/payment.py::PaymentGateway::charge/3",
+      "name": "charge",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/payment.py",
+      "line_start": 9,
+      "line_end": 14,
+      "parent": "python-shop-sample/payment.py::PaymentGateway",
+      "arity": 3,
+      "signature": "def charge(self, user_id: str, amount_cents: int)",
+      "is_async": false
+    },
+    {
+      "id": "python-shop-sample/payment.py::PaymentGateway::status/2",
+      "name": "status",
+      "type": "method",
+      "language": "python",
+      "file": "python-shop-sample/payment.py",
+      "line_start": 16,
+      "line_end": 17,
+      "parent": "python-shop-sample/payment.py::PaymentGateway",
+      "arity": 2,
+      "signature": "def status(self, payment_id: str)",
+      "is_async": false
+    }
+  ],
+  "edges": [
+    {
+      "from": "python-shop-sample/app.py",
+      "to": "python-shop-sample/app.py::main/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/checkout_service.py",
+      "to": "python-shop-sample/checkout_service.py::CheckoutService",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/checkout_service.py::CheckoutService",
+      "to": "python-shop-sample/checkout_service.py::CheckoutService::__init__/4",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/checkout_service.py::CheckoutService",
+      "to": "python-shop-sample/checkout_service.py::CheckoutService::checkout/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/inventory.py",
+      "to": "python-shop-sample/inventory.py::OutOfStockError",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/inventory.py",
+      "to": "python-shop-sample/inventory.py::InventoryService",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/inventory.py::InventoryService",
+      "to": "python-shop-sample/inventory.py::InventoryService::__init__/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/inventory.py::InventoryService",
+      "to": "python-shop-sample/inventory.py::InventoryService::reserve/3",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/inventory.py::InventoryService",
+      "to": "python-shop-sample/inventory.py::InventoryService::release/3",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/models.py",
+      "to": "python-shop-sample/models.py::Order",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/models.py::Order",
+      "to": "dataclass",
+      "type": "decorated_by",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/models.py::Order",
+      "to": "python-shop-sample/models.py::Order::order_id",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/models.py::Order",
+      "to": "python-shop-sample/models.py::Order::user_id",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/models.py::Order",
+      "to": "python-shop-sample/models.py::Order::item",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/models.py::Order",
+      "to": "python-shop-sample/models.py::Order::quantity",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/models.py::Order",
+      "to": "python-shop-sample/models.py::Order::total_cents",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/models.py::Order",
+      "to": "python-shop-sample/models.py::Order::status",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/order_repo.py",
+      "to": "python-shop-sample/order_repo.py::OrderRepository",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/order_repo.py::OrderRepository",
+      "to": "python-shop-sample/order_repo.py::OrderRepository::__init__/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/order_repo.py::OrderRepository",
+      "to": "python-shop-sample/order_repo.py::OrderRepository::save/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/order_repo.py::OrderRepository",
+      "to": "python-shop-sample/order_repo.py::OrderRepository::find_by_id/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/order_repo.py::OrderRepository",
+      "to": "python-shop-sample/order_repo.py::OrderRepository::mark_paid/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/order_repo.py::OrderRepository",
+      "to": "python-shop-sample/order_repo.py::OrderRepository::status/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/payment.py",
+      "to": "python-shop-sample/payment.py::PaymentError",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/payment.py",
+      "to": "python-shop-sample/payment.py::PaymentGateway",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/payment.py::PaymentGateway",
+      "to": "python-shop-sample/payment.py::PaymentGateway::__init__/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/payment.py::PaymentGateway",
+      "to": "python-shop-sample/payment.py::PaymentGateway::charge/3",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/payment.py::PaymentGateway",
+      "to": "python-shop-sample/payment.py::PaymentGateway::status/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py::main/0",
+      "to": "python-shop-sample/order_repo.py::OrderRepository",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py::main/0",
+      "to": "python-shop-sample/inventory.py::InventoryService",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py::main/0",
+      "to": "python-shop-sample/payment.py::PaymentGateway",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py::main/0",
+      "to": "python-shop-sample/checkout_service.py::CheckoutService",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py::main/0",
+      "to": "python-shop-sample/models.py::Order",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py::main/0",
+      "to": "python-shop-sample/order_repo.py::OrderRepository::save/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py::main/0",
+      "to": "python-shop-sample/checkout_service.py::CheckoutService::checkout/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py::main/0",
+      "to": "print",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py",
+      "to": "python-shop-sample/app.py::main/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/checkout_service.py::CheckoutService::checkout/2",
+      "to": "python-shop-sample/order_repo.py::OrderRepository::find_by_id/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/checkout_service.py::CheckoutService::checkout/2",
+      "to": "LookupError",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/checkout_service.py::CheckoutService::checkout/2",
+      "to": "python-shop-sample/inventory.py::InventoryService::reserve/3",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/checkout_service.py::CheckoutService::checkout/2",
+      "to": "python-shop-sample/payment.py::PaymentGateway::charge/3",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/checkout_service.py::CheckoutService::checkout/2",
+      "to": "python-shop-sample/inventory.py::InventoryService::release/3",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/checkout_service.py::CheckoutService::checkout/2",
+      "to": "python-shop-sample/order_repo.py::OrderRepository::mark_paid/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/inventory.py::InventoryService::__init__/2",
+      "to": "dict",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/inventory.py::InventoryService::reserve/3",
+      "to": "get",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/inventory.py::InventoryService::reserve/3",
+      "to": "python-shop-sample/inventory.py::OutOfStockError",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/inventory.py::InventoryService::release/3",
+      "to": "get",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/order_repo.py::OrderRepository::find_by_id/2",
+      "to": "get",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/order_repo.py::OrderRepository::mark_paid/2",
+      "to": "python-shop-sample/order_repo.py::OrderRepository::find_by_id/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "OrderRepository"
+    },
+    {
+      "from": "python-shop-sample/order_repo.py::OrderRepository::mark_paid/2",
+      "to": "LookupError",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/order_repo.py::OrderRepository::status/2",
+      "to": "python-shop-sample/order_repo.py::OrderRepository::find_by_id/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "OrderRepository"
+    },
+    {
+      "from": "python-shop-sample/payment.py::PaymentGateway::charge/3",
+      "to": "python-shop-sample/payment.py::PaymentError",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/payment.py::PaymentGateway::charge/3",
+      "to": "len",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/payment.py::PaymentGateway::status/2",
+      "to": "get",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py",
+      "to": "python-shop-sample/checkout_service.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py",
+      "to": "python-shop-sample/inventory.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py",
+      "to": "python-shop-sample/models.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py",
+      "to": "python-shop-sample/order_repo.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/app.py",
+      "to": "python-shop-sample/payment.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/checkout_service.py",
+      "to": "python-shop-sample/inventory.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/checkout_service.py",
+      "to": "python-shop-sample/order_repo.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/checkout_service.py",
+      "to": "python-shop-sample/payment.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/inventory.py::OutOfStockError",
+      "to": "Exception",
+      "type": "extends",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/models.py",
+      "to": "dataclasses",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/order_repo.py",
+      "to": "python-shop-sample/models.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "python-shop-sample/payment.py::PaymentError",
+      "to": "Exception",
+      "type": "extends",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    }
+  ]
+}

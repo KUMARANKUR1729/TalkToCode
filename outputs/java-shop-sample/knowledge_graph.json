@@ -1,0 +1,1423 @@
+{
+  "meta": {
+    "schema_version": 2,
+    "target": "java-shop-sample",
+    "language": "java",
+    "languages": {
+      "java": 8
+    },
+    "source_path": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase/java-shop-sample",
+    "hash": "09ce717c12f01d9c",
+    "generated_at": "2026-09-17T08:10:03.371184+00:00",
+    "node_count": 52,
+    "edge_count": 96,
+    "parse_failures": [],
+    "codebase_root": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase"
+  },
+  "nodes": [
+    {
+      "id": "java-shop-sample/src/CheckoutService.java",
+      "name": "CheckoutService.java",
+      "type": "file",
+      "language": "java",
+      "file": "java-shop-sample/src/CheckoutService.java",
+      "line_start": 1,
+      "line_end": 35,
+      "parent": null,
+      "hash": "9925fa14e0e3bf37"
+    },
+    {
+      "id": "java-shop-sample/src/CheckoutService.java::CheckoutService",
+      "name": "CheckoutService",
+      "type": "class",
+      "language": "java",
+      "file": "java-shop-sample/src/CheckoutService.java",
+      "line_start": 5,
+      "line_end": 35,
+      "parent": "java-shop-sample/src/CheckoutService.java",
+      "signature": "public class CheckoutService"
+    },
+    {
+      "id": "java-shop-sample/src/CheckoutService.java::CheckoutService::orders",
+      "name": "orders",
+      "type": "field",
+      "language": "java",
+      "file": "java-shop-sample/src/CheckoutService.java",
+      "line_start": 7,
+      "line_end": 7,
+      "parent": "java-shop-sample/src/CheckoutService.java::CheckoutService",
+      "signature": "private final OrderRepository orders;",
+      "value_type": "OrderRepository"
+    },
+    {
+      "id": "java-shop-sample/src/CheckoutService.java::CheckoutService::inventory",
+      "name": "inventory",
+      "type": "field",
+      "language": "java",
+      "file": "java-shop-sample/src/CheckoutService.java",
+      "line_start": 8,
+      "line_end": 8,
+      "parent": "java-shop-sample/src/CheckoutService.java::CheckoutService",
+      "signature": "private final InventoryService inventory;",
+      "value_type": "InventoryService"
+    },
+    {
+      "id": "java-shop-sample/src/CheckoutService.java::CheckoutService::payments",
+      "name": "payments",
+      "type": "field",
+      "language": "java",
+      "file": "java-shop-sample/src/CheckoutService.java",
+      "line_start": 9,
+      "line_end": 9,
+      "parent": "java-shop-sample/src/CheckoutService.java::CheckoutService",
+      "signature": "private final PaymentGateway payments;",
+      "value_type": "PaymentGateway"
+    },
+    {
+      "id": "java-shop-sample/src/CheckoutService.java::CheckoutService::CheckoutService/3",
+      "name": "CheckoutService",
+      "type": "constructor",
+      "language": "java",
+      "file": "java-shop-sample/src/CheckoutService.java",
+      "line_start": 11,
+      "line_end": 15,
+      "parent": "java-shop-sample/src/CheckoutService.java::CheckoutService",
+      "arity": 3,
+      "signature": "public CheckoutService(OrderRepository orders, InventoryService inventory, PaymentGateway payments)"
+    },
+    {
+      "id": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "name": "checkout",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/CheckoutService.java",
+      "line_start": 17,
+      "line_end": 34,
+      "parent": "java-shop-sample/src/CheckoutService.java::CheckoutService",
+      "arity": 1,
+      "signature": "public String checkout(String orderId)"
+    },
+    {
+      "id": "java-shop-sample/src/InventoryService.java",
+      "name": "InventoryService.java",
+      "type": "file",
+      "language": "java",
+      "file": "java-shop-sample/src/InventoryService.java",
+      "line_start": 1,
+      "line_end": 29,
+      "parent": null,
+      "hash": "0388ea6c5b2fb13b"
+    },
+    {
+      "id": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "name": "InventoryService",
+      "type": "class",
+      "language": "java",
+      "file": "java-shop-sample/src/InventoryService.java",
+      "line_start": 6,
+      "line_end": 29,
+      "parent": "java-shop-sample/src/InventoryService.java",
+      "signature": "public class InventoryService"
+    },
+    {
+      "id": "java-shop-sample/src/InventoryService.java::InventoryService::stock",
+      "name": "stock",
+      "type": "field",
+      "language": "java",
+      "file": "java-shop-sample/src/InventoryService.java",
+      "line_start": 8,
+      "line_end": 8,
+      "parent": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "signature": "private final Map<String, Integer> stock = new HashMap<>();",
+      "value_type": "Map"
+    },
+    {
+      "id": "java-shop-sample/src/InventoryService.java::InventoryService::restock/2",
+      "name": "restock",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/InventoryService.java",
+      "line_start": 10,
+      "line_end": 12,
+      "parent": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "arity": 2,
+      "signature": "public void restock(String item, int quantity)"
+    },
+    {
+      "id": "java-shop-sample/src/InventoryService.java::InventoryService::reserve/2",
+      "name": "reserve",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/InventoryService.java",
+      "line_start": 14,
+      "line_end": 20,
+      "parent": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "arity": 2,
+      "signature": "public void reserve(String item, int quantity)"
+    },
+    {
+      "id": "java-shop-sample/src/InventoryService.java::InventoryService::release/2",
+      "name": "release",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/InventoryService.java",
+      "line_start": 22,
+      "line_end": 24,
+      "parent": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "arity": 2,
+      "signature": "public void release(String item, int quantity)"
+    },
+    {
+      "id": "java-shop-sample/src/InventoryService.java::InventoryService::available/1",
+      "name": "available",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/InventoryService.java",
+      "line_start": 26,
+      "line_end": 28,
+      "parent": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "arity": 1,
+      "signature": "public int available(String item)"
+    },
+    {
+      "id": "java-shop-sample/src/Main.java",
+      "name": "Main.java",
+      "type": "file",
+      "language": "java",
+      "file": "java-shop-sample/src/Main.java",
+      "line_start": 1,
+      "line_end": 21,
+      "parent": null,
+      "hash": "890f53999bbe487a"
+    },
+    {
+      "id": "java-shop-sample/src/Main.java::Main",
+      "name": "Main",
+      "type": "class",
+      "language": "java",
+      "file": "java-shop-sample/src/Main.java",
+      "line_start": 5,
+      "line_end": 21,
+      "parent": "java-shop-sample/src/Main.java",
+      "signature": "public class Main"
+    },
+    {
+      "id": "java-shop-sample/src/Main.java::Main::main/1",
+      "name": "main",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/Main.java",
+      "line_start": 7,
+      "line_end": 20,
+      "parent": "java-shop-sample/src/Main.java::Main",
+      "arity": 1,
+      "signature": "public static void main(String[] args)"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java",
+      "name": "Order.java",
+      "type": "file",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 1,
+      "line_end": 47,
+      "parent": null,
+      "hash": "60ed622fb9297b2b"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order",
+      "name": "Order",
+      "type": "class",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 3,
+      "line_end": 47,
+      "parent": "java-shop-sample/src/model/Order.java",
+      "signature": "public class Order"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::orderId",
+      "name": "orderId",
+      "type": "field",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 5,
+      "line_end": 5,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "signature": "private final String orderId;",
+      "value_type": "String"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::userId",
+      "name": "userId",
+      "type": "field",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 6,
+      "line_end": 6,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "signature": "private final String userId;",
+      "value_type": "String"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::item",
+      "name": "item",
+      "type": "field",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 7,
+      "line_end": 7,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "signature": "private final String item;",
+      "value_type": "String"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::quantity",
+      "name": "quantity",
+      "type": "field",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 8,
+      "line_end": 8,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "signature": "private final int quantity;",
+      "value_type": "int"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::totalCents",
+      "name": "totalCents",
+      "type": "field",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 9,
+      "line_end": 9,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "signature": "private final int totalCents;",
+      "value_type": "int"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::status",
+      "name": "status",
+      "type": "field",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 10,
+      "line_end": 10,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "signature": "private String status = \"PENDING\";",
+      "value_type": "String"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::Order/5",
+      "name": "Order",
+      "type": "constructor",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 12,
+      "line_end": 18,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "arity": 5,
+      "signature": "public Order(String orderId, String userId, String item, int quantity, int totalCents)"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::getOrderId/0",
+      "name": "getOrderId",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 20,
+      "line_end": 22,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "arity": 0,
+      "signature": "public String getOrderId()"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::getUserId/0",
+      "name": "getUserId",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 24,
+      "line_end": 26,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "arity": 0,
+      "signature": "public String getUserId()"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::getItem/0",
+      "name": "getItem",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 28,
+      "line_end": 30,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "arity": 0,
+      "signature": "public String getItem()"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::getQuantity/0",
+      "name": "getQuantity",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 32,
+      "line_end": 34,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "arity": 0,
+      "signature": "public int getQuantity()"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::getTotalCents/0",
+      "name": "getTotalCents",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 36,
+      "line_end": 38,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "arity": 0,
+      "signature": "public int getTotalCents()"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::getStatus/0",
+      "name": "getStatus",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 40,
+      "line_end": 42,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "arity": 0,
+      "signature": "public String getStatus()"
+    },
+    {
+      "id": "java-shop-sample/src/model/Order.java::Order::markPaid/0",
+      "name": "markPaid",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/model/Order.java",
+      "line_start": 44,
+      "line_end": 46,
+      "parent": "java-shop-sample/src/model/Order.java::Order",
+      "arity": 0,
+      "signature": "public void markPaid()"
+    },
+    {
+      "id": "java-shop-sample/src/OrderRepository.java",
+      "name": "OrderRepository.java",
+      "type": "file",
+      "language": "java",
+      "file": "java-shop-sample/src/OrderRepository.java",
+      "line_start": 1,
+      "line_end": 34,
+      "parent": null,
+      "hash": "731d400079f3a90e"
+    },
+    {
+      "id": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "name": "OrderRepository",
+      "type": "class",
+      "language": "java",
+      "file": "java-shop-sample/src/OrderRepository.java",
+      "line_start": 7,
+      "line_end": 34,
+      "parent": "java-shop-sample/src/OrderRepository.java",
+      "signature": "public class OrderRepository"
+    },
+    {
+      "id": "java-shop-sample/src/OrderRepository.java::OrderRepository::orders",
+      "name": "orders",
+      "type": "field",
+      "language": "java",
+      "file": "java-shop-sample/src/OrderRepository.java",
+      "line_start": 9,
+      "line_end": 9,
+      "parent": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "signature": "private final Map<String, Order> orders = new HashMap<>();",
+      "value_type": "Map"
+    },
+    {
+      "id": "java-shop-sample/src/OrderRepository.java::OrderRepository::save/1",
+      "name": "save",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/OrderRepository.java",
+      "line_start": 11,
+      "line_end": 13,
+      "parent": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "arity": 1,
+      "signature": "public void save(Order order)"
+    },
+    {
+      "id": "java-shop-sample/src/OrderRepository.java::OrderRepository::findById/1",
+      "name": "findById",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/OrderRepository.java",
+      "line_start": 15,
+      "line_end": 17,
+      "parent": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "arity": 1,
+      "signature": "public Order findById(String orderId)"
+    },
+    {
+      "id": "java-shop-sample/src/OrderRepository.java::OrderRepository::markPaid/1",
+      "name": "markPaid",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/OrderRepository.java",
+      "line_start": 19,
+      "line_end": 25,
+      "parent": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "arity": 1,
+      "signature": "public void markPaid(String orderId)"
+    },
+    {
+      "id": "java-shop-sample/src/OrderRepository.java::OrderRepository::status/1",
+      "name": "status",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/OrderRepository.java",
+      "line_start": 27,
+      "line_end": 33,
+      "parent": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "arity": 1,
+      "signature": "public String status(String orderId)"
+    },
+    {
+      "id": "java-shop-sample/src/OutOfStockException.java",
+      "name": "OutOfStockException.java",
+      "type": "file",
+      "language": "java",
+      "file": "java-shop-sample/src/OutOfStockException.java",
+      "line_start": 1,
+      "line_end": 8,
+      "parent": null,
+      "hash": "1928f4443efd0096"
+    },
+    {
+      "id": "java-shop-sample/src/OutOfStockException.java::OutOfStockException",
+      "name": "OutOfStockException",
+      "type": "class",
+      "language": "java",
+      "file": "java-shop-sample/src/OutOfStockException.java",
+      "line_start": 3,
+      "line_end": 8,
+      "parent": "java-shop-sample/src/OutOfStockException.java",
+      "signature": "public class OutOfStockException extends RuntimeException"
+    },
+    {
+      "id": "java-shop-sample/src/OutOfStockException.java::OutOfStockException::OutOfStockException/1",
+      "name": "OutOfStockException",
+      "type": "constructor",
+      "language": "java",
+      "file": "java-shop-sample/src/OutOfStockException.java",
+      "line_start": 5,
+      "line_end": 7,
+      "parent": "java-shop-sample/src/OutOfStockException.java::OutOfStockException",
+      "arity": 1,
+      "signature": "public OutOfStockException(String message)"
+    },
+    {
+      "id": "java-shop-sample/src/PaymentException.java",
+      "name": "PaymentException.java",
+      "type": "file",
+      "language": "java",
+      "file": "java-shop-sample/src/PaymentException.java",
+      "line_start": 1,
+      "line_end": 8,
+      "parent": null,
+      "hash": "df23839f91bde07f"
+    },
+    {
+      "id": "java-shop-sample/src/PaymentException.java::PaymentException",
+      "name": "PaymentException",
+      "type": "class",
+      "language": "java",
+      "file": "java-shop-sample/src/PaymentException.java",
+      "line_start": 3,
+      "line_end": 8,
+      "parent": "java-shop-sample/src/PaymentException.java",
+      "signature": "public class PaymentException extends RuntimeException"
+    },
+    {
+      "id": "java-shop-sample/src/PaymentException.java::PaymentException::PaymentException/1",
+      "name": "PaymentException",
+      "type": "constructor",
+      "language": "java",
+      "file": "java-shop-sample/src/PaymentException.java",
+      "line_start": 5,
+      "line_end": 7,
+      "parent": "java-shop-sample/src/PaymentException.java::PaymentException",
+      "arity": 1,
+      "signature": "public PaymentException(String message)"
+    },
+    {
+      "id": "java-shop-sample/src/PaymentGateway.java",
+      "name": "PaymentGateway.java",
+      "type": "file",
+      "language": "java",
+      "file": "java-shop-sample/src/PaymentGateway.java",
+      "line_start": 1,
+      "line_end": 26,
+      "parent": null,
+      "hash": "15bb93ad3d02a6a8"
+    },
+    {
+      "id": "java-shop-sample/src/PaymentGateway.java::PaymentGateway",
+      "name": "PaymentGateway",
+      "type": "class",
+      "language": "java",
+      "file": "java-shop-sample/src/PaymentGateway.java",
+      "line_start": 6,
+      "line_end": 26,
+      "parent": "java-shop-sample/src/PaymentGateway.java",
+      "signature": "public class PaymentGateway"
+    },
+    {
+      "id": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::payments",
+      "name": "payments",
+      "type": "field",
+      "language": "java",
+      "file": "java-shop-sample/src/PaymentGateway.java",
+      "line_start": 8,
+      "line_end": 8,
+      "parent": "java-shop-sample/src/PaymentGateway.java::PaymentGateway",
+      "signature": "private final Map<String, String> payments = new HashMap<>();",
+      "value_type": "Map"
+    },
+    {
+      "id": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::charge/2",
+      "name": "charge",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/PaymentGateway.java",
+      "line_start": 10,
+      "line_end": 12,
+      "parent": "java-shop-sample/src/PaymentGateway.java::PaymentGateway",
+      "arity": 2,
+      "signature": "public String charge(String userId, int amountCents)"
+    },
+    {
+      "id": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::charge/3",
+      "name": "charge",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/PaymentGateway.java",
+      "line_start": 14,
+      "line_end": 21,
+      "parent": "java-shop-sample/src/PaymentGateway.java::PaymentGateway",
+      "arity": 3,
+      "signature": "public String charge(String userId, int amountCents, String method)"
+    },
+    {
+      "id": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::status/1",
+      "name": "status",
+      "type": "method",
+      "language": "java",
+      "file": "java-shop-sample/src/PaymentGateway.java",
+      "line_start": 23,
+      "line_end": 25,
+      "parent": "java-shop-sample/src/PaymentGateway.java::PaymentGateway",
+      "arity": 1,
+      "signature": "public String status(String paymentId)"
+    }
+  ],
+  "edges": [
+    {
+      "from": "java-shop-sample/src/CheckoutService.java",
+      "to": "java-shop-sample/src/CheckoutService.java::CheckoutService",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService",
+      "to": "java-shop-sample/src/CheckoutService.java::CheckoutService::orders",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService",
+      "to": "java-shop-sample/src/CheckoutService.java::CheckoutService::inventory",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService",
+      "to": "java-shop-sample/src/CheckoutService.java::CheckoutService::payments",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService",
+      "to": "java-shop-sample/src/CheckoutService.java::CheckoutService::CheckoutService/3",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService",
+      "to": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java",
+      "to": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "to": "java-shop-sample/src/InventoryService.java::InventoryService::stock",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "to": "java-shop-sample/src/InventoryService.java::InventoryService::restock/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "to": "java-shop-sample/src/InventoryService.java::InventoryService::reserve/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "to": "java-shop-sample/src/InventoryService.java::InventoryService::release/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "to": "java-shop-sample/src/InventoryService.java::InventoryService::available/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/Main.java",
+      "to": "java-shop-sample/src/Main.java::Main",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main",
+      "to": "java-shop-sample/src/Main.java::Main::main/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java",
+      "to": "java-shop-sample/src/model/Order.java::Order",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::orderId",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::userId",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::item",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::quantity",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::totalCents",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::status",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::Order/5",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::getOrderId/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::getUserId/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::getItem/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::getQuantity/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::getTotalCents/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::getStatus/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/model/Order.java::Order",
+      "to": "java-shop-sample/src/model/Order.java::Order::markPaid/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository::orders",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository::save/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository::findById/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository::markPaid/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository::status/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OutOfStockException.java",
+      "to": "java-shop-sample/src/OutOfStockException.java::OutOfStockException",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OutOfStockException.java::OutOfStockException",
+      "to": "java-shop-sample/src/OutOfStockException.java::OutOfStockException::OutOfStockException/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/PaymentException.java",
+      "to": "java-shop-sample/src/PaymentException.java::PaymentException",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/PaymentException.java::PaymentException",
+      "to": "java-shop-sample/src/PaymentException.java::PaymentException::PaymentException/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/PaymentGateway.java",
+      "to": "java-shop-sample/src/PaymentGateway.java::PaymentGateway",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/PaymentGateway.java::PaymentGateway",
+      "to": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::payments",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/PaymentGateway.java::PaymentGateway",
+      "to": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::charge/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/PaymentGateway.java::PaymentGateway",
+      "to": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::charge/3",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/PaymentGateway.java::PaymentGateway",
+      "to": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::status/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository::findById/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "OrderRepository"
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "to": "IllegalArgumentException.IllegalArgumentException",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "to": "java-shop-sample/src/InventoryService.java::InventoryService::reserve/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "InventoryService"
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "to": "java-shop-sample/src/model/Order.java::Order::getItem/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 2,
+      "via": "Order"
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "to": "java-shop-sample/src/model/Order.java::Order::getQuantity/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 2,
+      "via": "Order"
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "to": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::charge/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "PaymentGateway"
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "to": "java-shop-sample/src/model/Order.java::Order::getUserId/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "Order"
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "to": "java-shop-sample/src/model/Order.java::Order::getTotalCents/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "Order"
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "to": "java-shop-sample/src/InventoryService.java::InventoryService::release/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "InventoryService"
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository::markPaid/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "OrderRepository"
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java::InventoryService::restock/2",
+      "to": "Map.merge",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java::InventoryService::reserve/2",
+      "to": "Map.getOrDefault",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java::InventoryService::reserve/2",
+      "to": "java-shop-sample/src/OutOfStockException.java::OutOfStockException::OutOfStockException/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "OutOfStockException"
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java::InventoryService::reserve/2",
+      "to": "Map.put",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java::InventoryService::release/2",
+      "to": "java-shop-sample/src/InventoryService.java::InventoryService::restock/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "InventoryService"
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java::InventoryService::available/1",
+      "to": "Map.getOrDefault",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main::main/1",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main::main/1",
+      "to": "java-shop-sample/src/InventoryService.java::InventoryService",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main::main/1",
+      "to": "java-shop-sample/src/PaymentGateway.java::PaymentGateway",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main::main/1",
+      "to": "java-shop-sample/src/CheckoutService.java::CheckoutService::CheckoutService/3",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "CheckoutService"
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main::main/1",
+      "to": "java-shop-sample/src/InventoryService.java::InventoryService::restock/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "InventoryService"
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main::main/1",
+      "to": "java-shop-sample/src/model/Order.java::Order::Order/5",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "Order"
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main::main/1",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository::save/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "OrderRepository"
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main::main/1",
+      "to": "java-shop-sample/src/CheckoutService.java::CheckoutService::checkout/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "CheckoutService"
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main::main/1",
+      "to": "java-shop-sample/src/model/Order.java::Order::getOrderId/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 2,
+      "via": "Order"
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main::main/1",
+      "to": "println",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main::main/1",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository::status/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "OrderRepository"
+    },
+    {
+      "from": "java-shop-sample/src/Main.java::Main::main/1",
+      "to": "java-shop-sample/src/InventoryService.java::InventoryService::available/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "InventoryService"
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository::save/1",
+      "to": "Map.put",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository::save/1",
+      "to": "java-shop-sample/src/model/Order.java::Order::getOrderId/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "Order"
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository::findById/1",
+      "to": "Map.get",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository::markPaid/1",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository::findById/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "OrderRepository"
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository::markPaid/1",
+      "to": "IllegalArgumentException.IllegalArgumentException",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository::markPaid/1",
+      "to": "java-shop-sample/src/model/Order.java::Order::markPaid/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "Order"
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository::status/1",
+      "to": "java-shop-sample/src/OrderRepository.java::OrderRepository::findById/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "OrderRepository"
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java::OrderRepository::status/1",
+      "to": "java-shop-sample/src/model/Order.java::Order::getStatus/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "Order"
+    },
+    {
+      "from": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::charge/2",
+      "to": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::charge/3",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "PaymentGateway"
+    },
+    {
+      "from": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::charge/3",
+      "to": "java-shop-sample/src/PaymentException.java::PaymentException::PaymentException/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "PaymentException"
+    },
+    {
+      "from": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::charge/3",
+      "to": "Map.size",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::charge/3",
+      "to": "Map.put",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/PaymentGateway.java::PaymentGateway::status/1",
+      "to": "Map.getOrDefault",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/CheckoutService.java",
+      "to": "java-shop-sample/src/model/Order.java::Order",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java",
+      "to": "java.util.HashMap",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/InventoryService.java",
+      "to": "java.util.Map",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/Main.java",
+      "to": "java-shop-sample/src/model/Order.java::Order",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java",
+      "to": "java-shop-sample/src/model/Order.java::Order",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java",
+      "to": "java.util.HashMap",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OrderRepository.java",
+      "to": "java.util.Map",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/OutOfStockException.java::OutOfStockException",
+      "to": "RuntimeException",
+      "type": "extends",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/PaymentException.java::PaymentException",
+      "to": "RuntimeException",
+      "type": "extends",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/PaymentGateway.java",
+      "to": "java.util.HashMap",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "java-shop-sample/src/PaymentGateway.java",
+      "to": "java.util.Map",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    }
+  ]
+}

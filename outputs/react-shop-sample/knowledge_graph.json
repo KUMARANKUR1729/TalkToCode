@@ -1,0 +1,680 @@
+{
+  "meta": {
+    "schema_version": 2,
+    "target": "react-shop-sample",
+    "language": "javascript",
+    "languages": {
+      "javascript": 6
+    },
+    "source_path": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase/react-shop-sample",
+    "hash": "b89809c932eeea78",
+    "generated_at": "2026-09-17T08:10:03.417962+00:00",
+    "node_count": 19,
+    "edge_count": 53,
+    "parse_failures": [],
+    "codebase_root": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase"
+  },
+  "nodes": [
+    {
+      "id": "react-shop-sample/src/App.jsx",
+      "name": "App.jsx",
+      "type": "file",
+      "language": "javascript",
+      "file": "react-shop-sample/src/App.jsx",
+      "line_start": 1,
+      "line_end": 15,
+      "parent": null,
+      "hash": "11f4e5387ab61171"
+    },
+    {
+      "id": "react-shop-sample/src/App.jsx::App/0",
+      "name": "App",
+      "type": "component",
+      "language": "javascript",
+      "file": "react-shop-sample/src/App.jsx",
+      "line_start": 5,
+      "line_end": 15,
+      "parent": "react-shop-sample/src/App.jsx",
+      "arity": 0,
+      "signature": "export default function App()",
+      "is_async": false
+    },
+    {
+      "id": "react-shop-sample/src/CartView.jsx",
+      "name": "CartView.jsx",
+      "type": "file",
+      "language": "javascript",
+      "file": "react-shop-sample/src/CartView.jsx",
+      "line_start": 1,
+      "line_end": 25,
+      "parent": null,
+      "hash": "024d764678f2f4f4"
+    },
+    {
+      "id": "react-shop-sample/src/CartView.jsx::CartView/1",
+      "name": "CartView",
+      "type": "component",
+      "language": "javascript",
+      "file": "react-shop-sample/src/CartView.jsx",
+      "line_start": 4,
+      "line_end": 25,
+      "parent": "react-shop-sample/src/CartView.jsx",
+      "arity": 1,
+      "signature": "export default function CartView(",
+      "is_async": false
+    },
+    {
+      "id": "react-shop-sample/src/CheckoutButton.jsx",
+      "name": "CheckoutButton.jsx",
+      "type": "file",
+      "language": "javascript",
+      "file": "react-shop-sample/src/CheckoutButton.jsx",
+      "line_start": 1,
+      "line_end": 20,
+      "parent": null,
+      "hash": "8b3f4bb0e8d10680"
+    },
+    {
+      "id": "react-shop-sample/src/CheckoutButton.jsx::CheckoutButton/1",
+      "name": "CheckoutButton",
+      "type": "component",
+      "language": "javascript",
+      "file": "react-shop-sample/src/CheckoutButton.jsx",
+      "line_start": 4,
+      "line_end": 20,
+      "parent": "react-shop-sample/src/CheckoutButton.jsx",
+      "arity": 1,
+      "signature": "export default function CheckoutButton(",
+      "is_async": false
+    },
+    {
+      "id": "react-shop-sample/src/shopApi.js",
+      "name": "shopApi.js",
+      "type": "file",
+      "language": "javascript",
+      "file": "react-shop-sample/src/shopApi.js",
+      "line_start": 1,
+      "line_end": 27,
+      "parent": null,
+      "hash": "5495fb5931c8cd2d"
+    },
+    {
+      "id": "react-shop-sample/src/shopApi.js::BASE_URL",
+      "name": "BASE_URL",
+      "type": "constant",
+      "language": "javascript",
+      "file": "react-shop-sample/src/shopApi.js",
+      "line_start": 1,
+      "line_end": 1,
+      "parent": "react-shop-sample/src/shopApi.js",
+      "signature": "const BASE_URL = \"/api\";"
+    },
+    {
+      "id": "react-shop-sample/src/shopApi.js::fetchCart/0",
+      "name": "fetchCart",
+      "type": "function",
+      "language": "javascript",
+      "file": "react-shop-sample/src/shopApi.js",
+      "line_start": 3,
+      "line_end": 9,
+      "parent": "react-shop-sample/src/shopApi.js",
+      "arity": 0,
+      "signature": "export async function fetchCart()",
+      "is_async": true
+    },
+    {
+      "id": "react-shop-sample/src/shopApi.js::submitOrder/1",
+      "name": "submitOrder",
+      "type": "function",
+      "language": "javascript",
+      "file": "react-shop-sample/src/shopApi.js",
+      "line_start": 11,
+      "line_end": 21,
+      "parent": "react-shop-sample/src/shopApi.js",
+      "arity": 1,
+      "signature": "export async function submitOrder(items)",
+      "is_async": true
+    },
+    {
+      "id": "react-shop-sample/src/shopApi.js::orderStatus/1",
+      "name": "orderStatus",
+      "type": "function",
+      "language": "javascript",
+      "file": "react-shop-sample/src/shopApi.js",
+      "line_start": 23,
+      "line_end": 27,
+      "parent": "react-shop-sample/src/shopApi.js",
+      "arity": 1,
+      "signature": "export async function orderStatus(orderId)",
+      "is_async": true
+    },
+    {
+      "id": "react-shop-sample/src/useCart.js",
+      "name": "useCart.js",
+      "type": "file",
+      "language": "javascript",
+      "file": "react-shop-sample/src/useCart.js",
+      "line_start": 1,
+      "line_end": 29,
+      "parent": null,
+      "hash": "9638a34f4f76ca76"
+    },
+    {
+      "id": "react-shop-sample/src/useCart.js::formatError/1",
+      "name": "formatError",
+      "type": "function",
+      "language": "javascript",
+      "file": "react-shop-sample/src/useCart.js",
+      "line_start": 4,
+      "line_end": 6,
+      "parent": "react-shop-sample/src/useCart.js",
+      "arity": 1,
+      "signature": "function formatError(err)",
+      "is_async": false
+    },
+    {
+      "id": "react-shop-sample/src/useCart.js::useCart/0",
+      "name": "useCart",
+      "type": "hook",
+      "language": "javascript",
+      "file": "react-shop-sample/src/useCart.js",
+      "line_start": 8,
+      "line_end": 29,
+      "parent": "react-shop-sample/src/useCart.js",
+      "arity": 0,
+      "signature": "export function useCart()",
+      "is_async": false
+    },
+    {
+      "id": "react-shop-sample/src/useCart.js::useCart/0::reload/0",
+      "name": "reload",
+      "type": "function",
+      "language": "javascript",
+      "file": "react-shop-sample/src/useCart.js",
+      "line_start": 13,
+      "line_end": 22,
+      "parent": "react-shop-sample/src/useCart.js::useCart/0",
+      "arity": 0,
+      "signature": "const reload = useCallback(async () =>",
+      "is_async": true
+    },
+    {
+      "id": "react-shop-sample/src/useCheckout.js",
+      "name": "useCheckout.js",
+      "type": "file",
+      "language": "javascript",
+      "file": "react-shop-sample/src/useCheckout.js",
+      "line_start": 1,
+      "line_end": 26,
+      "parent": null,
+      "hash": "67be213b67c5fea3"
+    },
+    {
+      "id": "react-shop-sample/src/useCheckout.js::formatError/1",
+      "name": "formatError",
+      "type": "function",
+      "language": "javascript",
+      "file": "react-shop-sample/src/useCheckout.js",
+      "line_start": 4,
+      "line_end": 6,
+      "parent": "react-shop-sample/src/useCheckout.js",
+      "arity": 1,
+      "signature": "function formatError(err)",
+      "is_async": false
+    },
+    {
+      "id": "react-shop-sample/src/useCheckout.js::useCheckout/0",
+      "name": "useCheckout",
+      "type": "hook",
+      "language": "javascript",
+      "file": "react-shop-sample/src/useCheckout.js",
+      "line_start": 8,
+      "line_end": 26,
+      "parent": "react-shop-sample/src/useCheckout.js",
+      "arity": 0,
+      "signature": "export function useCheckout()",
+      "is_async": false
+    },
+    {
+      "id": "react-shop-sample/src/useCheckout.js::useCheckout/0::submit/1",
+      "name": "submit",
+      "type": "function",
+      "language": "javascript",
+      "file": "react-shop-sample/src/useCheckout.js",
+      "line_start": 12,
+      "line_end": 23,
+      "parent": "react-shop-sample/src/useCheckout.js::useCheckout/0",
+      "arity": 1,
+      "signature": "const submit = useCallback(async (items) =>",
+      "is_async": true
+    }
+  ],
+  "edges": [
+    {
+      "from": "react-shop-sample/src/App.jsx",
+      "to": "react-shop-sample/src/App.jsx::App/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/App.jsx",
+      "to": "react",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/CartView.jsx",
+      "to": "react-shop-sample/src/CartView.jsx::CartView/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/CartView.jsx",
+      "to": "react",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/CheckoutButton.jsx",
+      "to": "react-shop-sample/src/CheckoutButton.jsx::CheckoutButton/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/CheckoutButton.jsx",
+      "to": "react",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/shopApi.js",
+      "to": "react-shop-sample/src/shopApi.js::BASE_URL",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/shopApi.js",
+      "to": "react-shop-sample/src/shopApi.js::fetchCart/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/shopApi.js",
+      "to": "react-shop-sample/src/shopApi.js::submitOrder/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/shopApi.js",
+      "to": "react-shop-sample/src/shopApi.js::orderStatus/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js",
+      "to": "react-shop-sample/src/useCart.js::formatError/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js",
+      "to": "react-shop-sample/src/useCart.js::useCart/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js::useCart/0",
+      "to": "react-shop-sample/src/useCart.js::useCart/0::reload/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js",
+      "to": "react",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCheckout.js",
+      "to": "react-shop-sample/src/useCheckout.js::formatError/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCheckout.js",
+      "to": "react-shop-sample/src/useCheckout.js::useCheckout/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCheckout.js::useCheckout/0",
+      "to": "react-shop-sample/src/useCheckout.js::useCheckout/0::submit/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCheckout.js",
+      "to": "react",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/App.jsx::App/0",
+      "to": "react-shop-sample/src/useCart.js::useCart/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/CartView.jsx::CartView/1",
+      "to": "map",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/CheckoutButton.jsx::CheckoutButton/1",
+      "to": "react-shop-sample/src/useCheckout.js::useCheckout/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/CheckoutButton.jsx::CheckoutButton/1",
+      "to": "react-shop-sample/src/useCheckout.js::useCheckout/0::submit/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/shopApi.js::fetchCart/0",
+      "to": "fetch",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/shopApi.js::fetchCart/0",
+      "to": "json",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/shopApi.js::submitOrder/1",
+      "to": "fetch",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/shopApi.js::submitOrder/1",
+      "to": "JSON.stringify",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/shopApi.js::submitOrder/1",
+      "to": "json",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/shopApi.js::orderStatus/1",
+      "to": "fetch",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/shopApi.js::orderStatus/1",
+      "to": "json",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js::useCart/0",
+      "to": "useState",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 3
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js::useCart/0",
+      "to": "useCallback",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js::useCart/0::reload/0",
+      "to": "react-shop-sample/src/shopApi.js::fetchCart/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js::useCart/0::reload/0",
+      "to": "setItems",
+      "type": "calls",
+      "external": false,
+      "resolution": "local",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js::useCart/0::reload/0",
+      "to": "setTotal",
+      "type": "calls",
+      "external": false,
+      "resolution": "local",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js::useCart/0::reload/0",
+      "to": "setError",
+      "type": "calls",
+      "external": false,
+      "resolution": "local",
+      "count": 2
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js::useCart/0::reload/0",
+      "to": "react-shop-sample/src/useCart.js::formatError/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "ambiguous": true
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js::useCart/0",
+      "to": "useEffect",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js::useCart/0",
+      "to": "react-shop-sample/src/useCart.js::useCart/0::reload/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCheckout.js::useCheckout/0",
+      "to": "useState",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 2
+    },
+    {
+      "from": "react-shop-sample/src/useCheckout.js::useCheckout/0",
+      "to": "useCallback",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCheckout.js::useCheckout/0::submit/1",
+      "to": "setStatus",
+      "type": "calls",
+      "external": false,
+      "resolution": "local",
+      "count": 3
+    },
+    {
+      "from": "react-shop-sample/src/useCheckout.js::useCheckout/0::submit/1",
+      "to": "react-shop-sample/src/shopApi.js::submitOrder/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCheckout.js::useCheckout/0::submit/1",
+      "to": "react-shop-sample/src/shopApi.js::orderStatus/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCheckout.js::useCheckout/0::submit/1",
+      "to": "setError",
+      "type": "calls",
+      "external": false,
+      "resolution": "local",
+      "count": 2
+    },
+    {
+      "from": "react-shop-sample/src/useCheckout.js::useCheckout/0::submit/1",
+      "to": "react-shop-sample/src/useCheckout.js::formatError/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "ambiguous": true
+    },
+    {
+      "from": "react-shop-sample/src/App.jsx::App/0",
+      "to": "react-shop-sample/src/CartView.jsx::CartView/1",
+      "type": "renders",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/App.jsx",
+      "to": "react-shop-sample/src/CartView.jsx",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/App.jsx",
+      "to": "react-shop-sample/src/useCart.js",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/CartView.jsx::CartView/1",
+      "to": "react-shop-sample/src/CheckoutButton.jsx::CheckoutButton/1",
+      "type": "renders",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/CartView.jsx",
+      "to": "react-shop-sample/src/CheckoutButton.jsx",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/CheckoutButton.jsx",
+      "to": "react-shop-sample/src/useCheckout.js",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCart.js",
+      "to": "react-shop-sample/src/shopApi.js",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "react-shop-sample/src/useCheckout.js",
+      "to": "react-shop-sample/src/shopApi.js",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    }
+  ]
+}

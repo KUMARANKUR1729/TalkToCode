@@ -1,0 +1,14 @@
+# Secrets — the NVIDIA API key lives here, never commit it
+.env
+.env.*
+!.env.example
+
+# Generated embedding caches (rebuildable from the graph)
+outputs/*/embeddings.json
+
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/secrets.toml

@@ -1,0 +1,862 @@
+{
+  "meta": {
+    "schema_version": 2,
+    "target": "ml-shop-sample",
+    "language": "python",
+    "languages": {
+      "python": 5
+    },
+    "source_path": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase/ml-shop-sample",
+    "hash": "eafe87013a052e9d",
+    "generated_at": "2026-09-17T08:10:03.386172+00:00",
+    "node_count": 27,
+    "edge_count": 63,
+    "parse_failures": [],
+    "codebase_root": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase"
+  },
+  "nodes": [
+    {
+      "id": "ml-shop-sample/dataset.py",
+      "name": "dataset.py",
+      "type": "file",
+      "language": "python",
+      "file": "ml-shop-sample/dataset.py",
+      "line_start": 1,
+      "line_end": 22,
+      "parent": null,
+      "hash": "6297f11b82c3db3a"
+    },
+    {
+      "id": "ml-shop-sample/dataset.py::SAMPLE_ORDERS",
+      "name": "SAMPLE_ORDERS",
+      "type": "constant",
+      "language": "python",
+      "file": "ml-shop-sample/dataset.py",
+      "line_start": 1,
+      "line_end": 8,
+      "parent": "ml-shop-sample/dataset.py",
+      "signature": "SAMPLE_ORDERS = [{'amount_cents': 1500, 'items': 1, 'returned': 0}, {'amount_cents': 2200, 'items': 1, 'returned': 0}, {'amount_cents': 3100, 'items': 2, 'retur"
+    },
+    {
+      "id": "ml-shop-sample/dataset.py::OrderDataset",
+      "name": "OrderDataset",
+      "type": "class",
+      "language": "python",
+      "file": "ml-shop-sample/dataset.py",
+      "line_start": 11,
+      "line_end": 22,
+      "parent": "ml-shop-sample/dataset.py",
+      "signature": "class OrderDataset"
+    },
+    {
+      "id": "ml-shop-sample/dataset.py::OrderDataset::__init__/2",
+      "name": "__init__",
+      "type": "method",
+      "language": "python",
+      "file": "ml-shop-sample/dataset.py",
+      "line_start": 12,
+      "line_end": 13,
+      "parent": "ml-shop-sample/dataset.py::OrderDataset",
+      "arity": 2,
+      "signature": "def __init__(self, rows)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/dataset.py::OrderDataset::__len__/1",
+      "name": "__len__",
+      "type": "method",
+      "language": "python",
+      "file": "ml-shop-sample/dataset.py",
+      "line_start": 15,
+      "line_end": 16,
+      "parent": "ml-shop-sample/dataset.py::OrderDataset",
+      "arity": 1,
+      "signature": "def __len__(self)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/dataset.py::OrderDataset::rows/1",
+      "name": "rows",
+      "type": "method",
+      "language": "python",
+      "file": "ml-shop-sample/dataset.py",
+      "line_start": 18,
+      "line_end": 19,
+      "parent": "ml-shop-sample/dataset.py::OrderDataset",
+      "arity": 1,
+      "signature": "def rows(self)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/dataset.py::OrderDataset::labels/1",
+      "name": "labels",
+      "type": "method",
+      "language": "python",
+      "file": "ml-shop-sample/dataset.py",
+      "line_start": 21,
+      "line_end": 22,
+      "parent": "ml-shop-sample/dataset.py::OrderDataset",
+      "arity": 1,
+      "signature": "def labels(self)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/evaluate.py",
+      "name": "evaluate.py",
+      "type": "file",
+      "language": "python",
+      "file": "ml-shop-sample/evaluate.py",
+      "line_start": 1,
+      "line_end": 11,
+      "parent": null,
+      "hash": "d6979d05756d0897"
+    },
+    {
+      "id": "ml-shop-sample/evaluate.py::Evaluator",
+      "name": "Evaluator",
+      "type": "class",
+      "language": "python",
+      "file": "ml-shop-sample/evaluate.py",
+      "line_start": 1,
+      "line_end": 11,
+      "parent": "ml-shop-sample/evaluate.py",
+      "signature": "class Evaluator"
+    },
+    {
+      "id": "ml-shop-sample/evaluate.py::Evaluator::__init__/2",
+      "name": "__init__",
+      "type": "method",
+      "language": "python",
+      "file": "ml-shop-sample/evaluate.py",
+      "line_start": 2,
+      "line_end": 3,
+      "parent": "ml-shop-sample/evaluate.py::Evaluator",
+      "arity": 2,
+      "signature": "def __init__(self, model)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/evaluate.py::Evaluator::score/3",
+      "name": "score",
+      "type": "method",
+      "language": "python",
+      "file": "ml-shop-sample/evaluate.py",
+      "line_start": 5,
+      "line_end": 6,
+      "parent": "ml-shop-sample/evaluate.py::Evaluator",
+      "arity": 3,
+      "signature": "def score(self, matrix, labels)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/evaluate.py::Evaluator::report/3",
+      "name": "report",
+      "type": "method",
+      "language": "python",
+      "file": "ml-shop-sample/evaluate.py",
+      "line_start": 8,
+      "line_end": 11,
+      "parent": "ml-shop-sample/evaluate.py::Evaluator",
+      "arity": 3,
+      "signature": "def report(self, matrix, labels)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/features.py",
+      "name": "features.py",
+      "type": "file",
+      "language": "python",
+      "file": "ml-shop-sample/features.py",
+      "line_start": 1,
+      "line_end": 10,
+      "parent": null,
+      "hash": "239f552052b85b6a"
+    },
+    {
+      "id": "ml-shop-sample/features.py::normalize_amount/1",
+      "name": "normalize_amount",
+      "type": "function",
+      "language": "python",
+      "file": "ml-shop-sample/features.py",
+      "line_start": 1,
+      "line_end": 2,
+      "parent": "ml-shop-sample/features.py",
+      "arity": 1,
+      "signature": "def normalize_amount(amount_cents: int)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/features.py::build_features/1",
+      "name": "build_features",
+      "type": "function",
+      "language": "python",
+      "file": "ml-shop-sample/features.py",
+      "line_start": 5,
+      "line_end": 6,
+      "parent": "ml-shop-sample/features.py",
+      "arity": 1,
+      "signature": "def build_features(row)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/features.py::build_matrix/1",
+      "name": "build_matrix",
+      "type": "function",
+      "language": "python",
+      "file": "ml-shop-sample/features.py",
+      "line_start": 9,
+      "line_end": 10,
+      "parent": "ml-shop-sample/features.py",
+      "arity": 1,
+      "signature": "def build_matrix(dataset)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/model.py",
+      "name": "model.py",
+      "type": "file",
+      "language": "python",
+      "file": "ml-shop-sample/model.py",
+      "line_start": 1,
+      "line_end": 32,
+      "parent": null,
+      "hash": "3555746332906e4e"
+    },
+    {
+      "id": "ml-shop-sample/model.py::ReturnRiskModel",
+      "name": "ReturnRiskModel",
+      "type": "class",
+      "language": "python",
+      "file": "ml-shop-sample/model.py",
+      "line_start": 4,
+      "line_end": 32,
+      "parent": "ml-shop-sample/model.py",
+      "signature": "class ReturnRiskModel"
+    },
+    {
+      "id": "ml-shop-sample/model.py::ReturnRiskModel::__init__/3",
+      "name": "__init__",
+      "type": "method",
+      "language": "python",
+      "file": "ml-shop-sample/model.py",
+      "line_start": 5,
+      "line_end": 8,
+      "parent": "ml-shop-sample/model.py::ReturnRiskModel",
+      "arity": 3,
+      "signature": "def __init__(self, n_features: int, lr: float=0.5)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/model.py::ReturnRiskModel::predict_proba/2",
+      "name": "predict_proba",
+      "type": "method",
+      "language": "python",
+      "file": "ml-shop-sample/model.py",
+      "line_start": 10,
+      "line_end": 14,
+      "parent": "ml-shop-sample/model.py::ReturnRiskModel",
+      "arity": 2,
+      "signature": "def predict_proba(self, features)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/model.py::ReturnRiskModel::predict/2",
+      "name": "predict",
+      "type": "method",
+      "language": "python",
+      "file": "ml-shop-sample/model.py",
+      "line_start": 16,
+      "line_end": 17,
+      "parent": "ml-shop-sample/model.py::ReturnRiskModel",
+      "arity": 2,
+      "signature": "def predict(self, features)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/model.py::ReturnRiskModel::update/3",
+      "name": "update",
+      "type": "method",
+      "language": "python",
+      "file": "ml-shop-sample/model.py",
+      "line_start": 19,
+      "line_end": 24,
+      "parent": "ml-shop-sample/model.py::ReturnRiskModel",
+      "arity": 3,
+      "signature": "def update(self, features, label: int)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/model.py::ReturnRiskModel::score/3",
+      "name": "score",
+      "type": "method",
+      "language": "python",
+      "file": "ml-shop-sample/model.py",
+      "line_start": 26,
+      "line_end": 32,
+      "parent": "ml-shop-sample/model.py::ReturnRiskModel",
+      "arity": 3,
+      "signature": "def score(self, matrix, labels)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/train.py",
+      "name": "train.py",
+      "type": "file",
+      "language": "python",
+      "file": "ml-shop-sample/train.py",
+      "line_start": 1,
+      "line_end": 34,
+      "parent": null,
+      "hash": "16ed03f596d64423"
+    },
+    {
+      "id": "ml-shop-sample/train.py::train_epoch/3",
+      "name": "train_epoch",
+      "type": "function",
+      "language": "python",
+      "file": "ml-shop-sample/train.py",
+      "line_start": 7,
+      "line_end": 11,
+      "parent": "ml-shop-sample/train.py",
+      "arity": 3,
+      "signature": "def train_epoch(model, matrix, labels)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/train.py::train_model/1",
+      "name": "train_model",
+      "type": "function",
+      "language": "python",
+      "file": "ml-shop-sample/train.py",
+      "line_start": 14,
+      "line_end": 23,
+      "parent": "ml-shop-sample/train.py",
+      "arity": 1,
+      "signature": "def train_model(epochs: int=200)",
+      "is_async": false
+    },
+    {
+      "id": "ml-shop-sample/train.py::main/0",
+      "name": "main",
+      "type": "function",
+      "language": "python",
+      "file": "ml-shop-sample/train.py",
+      "line_start": 26,
+      "line_end": 30,
+      "parent": "ml-shop-sample/train.py",
+      "arity": 0,
+      "signature": "def main()",
+      "is_async": false
+    }
+  ],
+  "edges": [
+    {
+      "from": "ml-shop-sample/dataset.py",
+      "to": "ml-shop-sample/dataset.py::SAMPLE_ORDERS",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/dataset.py",
+      "to": "ml-shop-sample/dataset.py::OrderDataset",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/dataset.py::OrderDataset",
+      "to": "ml-shop-sample/dataset.py::OrderDataset::__init__/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/dataset.py::OrderDataset",
+      "to": "ml-shop-sample/dataset.py::OrderDataset::__len__/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/dataset.py::OrderDataset",
+      "to": "ml-shop-sample/dataset.py::OrderDataset::rows/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/dataset.py::OrderDataset",
+      "to": "ml-shop-sample/dataset.py::OrderDataset::labels/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/evaluate.py",
+      "to": "ml-shop-sample/evaluate.py::Evaluator",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/evaluate.py::Evaluator",
+      "to": "ml-shop-sample/evaluate.py::Evaluator::__init__/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/evaluate.py::Evaluator",
+      "to": "ml-shop-sample/evaluate.py::Evaluator::score/3",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/evaluate.py::Evaluator",
+      "to": "ml-shop-sample/evaluate.py::Evaluator::report/3",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/features.py",
+      "to": "ml-shop-sample/features.py::normalize_amount/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/features.py",
+      "to": "ml-shop-sample/features.py::build_features/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/features.py",
+      "to": "ml-shop-sample/features.py::build_matrix/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel::__init__/3",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel::predict_proba/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel::predict/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel::update/3",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel::score/3",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py",
+      "to": "ml-shop-sample/train.py::train_epoch/3",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py",
+      "to": "ml-shop-sample/train.py::train_model/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py",
+      "to": "ml-shop-sample/train.py::main/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/dataset.py::OrderDataset::__init__/2",
+      "to": "list",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/dataset.py::OrderDataset::__len__/1",
+      "to": "len",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/dataset.py::OrderDataset::rows/1",
+      "to": "list",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/evaluate.py::Evaluator::score/3",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel::score/3",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/evaluate.py::Evaluator::report/3",
+      "to": "ml-shop-sample/evaluate.py::Evaluator::score/3",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "Evaluator"
+    },
+    {
+      "from": "ml-shop-sample/evaluate.py::Evaluator::report/3",
+      "to": "sum",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/evaluate.py::Evaluator::report/3",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel::predict/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/features.py::build_features/1",
+      "to": "ml-shop-sample/features.py::normalize_amount/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/features.py::build_features/1",
+      "to": "float",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/features.py::build_matrix/1",
+      "to": "ml-shop-sample/features.py::build_features/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/features.py::build_matrix/1",
+      "to": "ml-shop-sample/dataset.py::OrderDataset::rows/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel::predict_proba/2",
+      "to": "zip",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel::predict_proba/2",
+      "to": "exp",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel::predict/2",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel::predict_proba/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "ReturnRiskModel"
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel::update/3",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel::predict_proba/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "ReturnRiskModel"
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel::update/3",
+      "to": "enumerate",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel::update/3",
+      "to": "abs",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel::score/3",
+      "to": "sum",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel::score/3",
+      "to": "zip",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel::score/3",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel::predict/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1,
+      "via": "ReturnRiskModel"
+    },
+    {
+      "from": "ml-shop-sample/model.py::ReturnRiskModel::score/3",
+      "to": "len",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::train_epoch/3",
+      "to": "zip",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::train_epoch/3",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel::update/3",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::train_epoch/3",
+      "to": "len",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::train_model/1",
+      "to": "ml-shop-sample/dataset.py::OrderDataset",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::train_model/1",
+      "to": "ml-shop-sample/features.py::build_matrix/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::train_model/1",
+      "to": "ml-shop-sample/dataset.py::OrderDataset::labels/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::train_model/1",
+      "to": "ml-shop-sample/model.py::ReturnRiskModel",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::train_model/1",
+      "to": "len",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::train_model/1",
+      "to": "range",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::train_model/1",
+      "to": "ml-shop-sample/train.py::train_epoch/3",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::main/0",
+      "to": "ml-shop-sample/train.py::train_model/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::main/0",
+      "to": "ml-shop-sample/evaluate.py::Evaluator",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::main/0",
+      "to": "ml-shop-sample/evaluate.py::Evaluator::report/3",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py::main/0",
+      "to": "print",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py",
+      "to": "ml-shop-sample/train.py::main/0",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/model.py",
+      "to": "math",
+      "type": "imports",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py",
+      "to": "ml-shop-sample/dataset.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py",
+      "to": "ml-shop-sample/evaluate.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py",
+      "to": "ml-shop-sample/features.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "ml-shop-sample/train.py",
+      "to": "ml-shop-sample/model.py",
+      "type": "imports",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+# Sample questions per codebase — copy any of these into the Streamlit app.
+#
+# This file is executable: `python smoke_test.py` reads it, runs every question
+# through retrieval (and the LLM unless --offline), and fails if a question
+# marked "must refuse" produces an answer anyway.
+#
+# Format
+#   [target-name]            section header, must match a folder in codebase/
+#   any line ending in ?     a question
+#   ... (must refuse)        expect the not-found guarantee to fire
+#   # ...                    comment
+
+
+[java-shop-sample]
+# straightforward lookups
+What does CheckoutService.checkout do?
+What does InventoryService.reserve do?
+What does Order.markPaid do?
+What does OrderRepository.status do?             # `status` also exists on PaymentGateway
+Which fields does CheckoutService hold?
+What does OutOfStockException extend?
+# call-graph tracing
+What calls checkout and what does it call in turn?
+Who calls InventoryService.restock?
+Walk me through what happens when Main runs.
+# overloads — two `charge` methods, one calls the other
+What does PaymentGateway.charge do?
+What is the difference between the two charge methods?
+# no symbol named in the question
+What happens to reserved stock when a payment fails?
+which class stores orders?
+# not-found guarantee
+What does CheckoutService.refund do?             (must refuse)
+What does OrderRepository.charge do?             (must refuse)
+What does PaymentGateway.refund do?              (must refuse)
+
+
+[python-shop-sample]
+What does CheckoutService.checkout do?
+What does OrderRepository.mark_paid do?
+What does PaymentGateway.charge do?
+What does InventoryService.reserve do?
+What fields does the Order dataclass have?
+What does Order.total_cents hold?
+What does OrderRepository.status return when the order is missing?
+Compare OrderRepository.status and PaymentGateway.status.
+What exception is raised when stock runs out?
+how do we look up an order by its id?
+What does CheckoutService.cancel do?             (must refuse)
+
+
+[c-shop-sample]
+What does checkout_process do?
+What does inventory_restock do?
+What does stock_find do?
+What does order_repo_find_by_id return?
+What does payment_charge return on failure?
+What does the order struct hold?
+What does the inventory.h header declare?
+What does the MAX_ITEMS macro do?
+What are the CHECKOUT_ERR macros for?
+What calls inventory_reserve and what does it call in turn?
+Which functions use stock_find?
+which part reserves stock for an item?
+What does order_repo_delete do?                  (must refuse)
+
+
+[ml-shop-sample]
+What does ReturnRiskModel.predict_proba do?
+What does ReturnRiskModel.update do?
+What does ReturnRiskModel.score do?
+What does Evaluator.report do?
+What does build_matrix do?
+What does normalize_amount do?
+What does OrderDataset.labels return?
+What calls train_epoch and what does it call in turn?
+How does Evaluator get its accuracy number?
+where is accuracy computed?
+What does ReturnRiskModel.explain do?            (must refuse)
+
+
+[react-shop-sample]
+What does the useCart hook do?
+What does useCart.reload do?
+What does useCheckout.submit do?
+What does CheckoutButton do?
+What does fetchCart do?
+What does submitOrder send to the server?
+What does formatError do?                        # exists in two files
+What is BASE_URL used for?
+What calls CheckoutButton?
+Which hook does CartView use?
+which component renders the cart contents?
+What does the useWishlist hook do?               (must refuse)
+
+
+# Things worth watching for
+#
+# * PaymentGateway.charge has two overloads. The 2-arg one calls the 3-arg one,
+#   so the call graph must show charge/2 -> charge/3 and never charge/2 -> itself.
+# * `status` exists on OrderRepository and PaymentGateway (Java and Python), and
+#   `formatError` exists in both useCart.js and useCheckout.js. Asking about one
+#   must never answer about the other.
+# * Evaluator.score calls self._model.score(...). Both classes define `score`;
+#   the edge must point at ReturnRiskModel, not back at Evaluator.
+# * In useCart, setItems/setTotal/setError are labelled `local`, not `external`:
+#   they are bound in an enclosing scope, not imported.
+# * App renders CartView renders CheckoutButton, via JSX `renders` edges.
+# * The "must refuse" questions are the not-found guarantee. If any of them
+#   produces a confident answer, something has regressed.

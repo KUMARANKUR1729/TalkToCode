@@ -1,0 +1,1475 @@
+{
+  "meta": {
+    "schema_version": 2,
+    "target": "c-shop-sample",
+    "language": "c",
+    "languages": {
+      "c": 10
+    },
+    "source_path": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase/c-shop-sample",
+    "hash": "f796b9fefab3542e",
+    "generated_at": "2026-09-17T08:11:44.110303+00:00",
+    "node_count": 58,
+    "edge_count": 98,
+    "parse_failures": [],
+    "codebase_root": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase"
+  },
+  "nodes": [
+    {
+      "id": "c-shop-sample/src/checkout.c",
+      "name": "checkout.c",
+      "type": "file",
+      "language": "c",
+      "file": "c-shop-sample/src/checkout.c",
+      "line_start": 1,
+      "line_end": 23,
+      "parent": null,
+      "hash": "b91b41b2d602633f"
+    },
+    {
+      "id": "c-shop-sample/src/checkout.c::checkout_process/1",
+      "name": "checkout_process",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/checkout.c",
+      "line_start": 6,
+      "line_end": 23,
+      "parent": "c-shop-sample/src/checkout.c",
+      "arity": 1,
+      "signature": "int checkout_process(const char *order_id)"
+    },
+    {
+      "id": "c-shop-sample/src/checkout.h",
+      "name": "checkout.h",
+      "type": "file",
+      "language": "c",
+      "file": "c-shop-sample/src/checkout.h",
+      "line_start": 1,
+      "line_end": 10,
+      "parent": null,
+      "hash": "27797070d70e131a"
+    },
+    {
+      "id": "c-shop-sample/src/checkout.h::checkout_process/1",
+      "name": "checkout_process",
+      "type": "function_declaration",
+      "language": "c",
+      "file": "c-shop-sample/src/checkout.h",
+      "line_start": 8,
+      "line_end": 8,
+      "parent": "c-shop-sample/src/checkout.h",
+      "arity": 1,
+      "signature": "int checkout_process(const char *order_id);"
+    },
+    {
+      "id": "c-shop-sample/src/checkout.h::CHECKOUT_ERR_NOT_FOUND",
+      "name": "CHECKOUT_ERR_NOT_FOUND",
+      "type": "macro",
+      "language": "c",
+      "file": "c-shop-sample/src/checkout.h",
+      "line_start": 4,
+      "line_end": 4,
+      "parent": "c-shop-sample/src/checkout.h",
+      "signature": "#define CHECKOUT_ERR_NOT_FOUND -1"
+    },
+    {
+      "id": "c-shop-sample/src/checkout.h::CHECKOUT_ERR_STOCK",
+      "name": "CHECKOUT_ERR_STOCK",
+      "type": "macro",
+      "language": "c",
+      "file": "c-shop-sample/src/checkout.h",
+      "line_start": 5,
+      "line_end": 5,
+      "parent": "c-shop-sample/src/checkout.h",
+      "signature": "#define CHECKOUT_ERR_STOCK -2"
+    },
+    {
+      "id": "c-shop-sample/src/checkout.h::CHECKOUT_ERR_PAYMENT",
+      "name": "CHECKOUT_ERR_PAYMENT",
+      "type": "macro",
+      "language": "c",
+      "file": "c-shop-sample/src/checkout.h",
+      "line_start": 6,
+      "line_end": 6,
+      "parent": "c-shop-sample/src/checkout.h",
+      "signature": "#define CHECKOUT_ERR_PAYMENT -3"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.c",
+      "name": "inventory.c",
+      "type": "file",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.c",
+      "line_start": 1,
+      "line_end": 53,
+      "parent": null,
+      "hash": "67614fa5c23b0a45"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.c::stock_find/1",
+      "name": "stock_find",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.c",
+      "line_start": 12,
+      "line_end": 19,
+      "parent": "c-shop-sample/src/inventory.c",
+      "arity": 1,
+      "signature": "static struct stock_entry *stock_find(const char *item)"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.c::inventory_restock/2",
+      "name": "inventory_restock",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.c",
+      "line_start": 21,
+      "line_end": 32,
+      "parent": "c-shop-sample/src/inventory.c",
+      "arity": 2,
+      "signature": "void inventory_restock(const char *item, int quantity)"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.c::inventory_reserve/2",
+      "name": "inventory_reserve",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.c",
+      "line_start": 34,
+      "line_end": 41,
+      "parent": "c-shop-sample/src/inventory.c",
+      "arity": 2,
+      "signature": "int inventory_reserve(const char *item, int quantity)"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.c::inventory_release/2",
+      "name": "inventory_release",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.c",
+      "line_start": 43,
+      "line_end": 45,
+      "parent": "c-shop-sample/src/inventory.c",
+      "arity": 2,
+      "signature": "void inventory_release(const char *item, int quantity)"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.c::inventory_status/1",
+      "name": "inventory_status",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.c",
+      "line_start": 47,
+      "line_end": 53,
+      "parent": "c-shop-sample/src/inventory.c",
+      "arity": 1,
+      "signature": "int inventory_status(const char *item)"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.c::stock",
+      "name": "stock",
+      "type": "global",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.c",
+      "line_start": 9,
+      "line_end": 9,
+      "parent": "c-shop-sample/src/inventory.c",
+      "signature": "static struct stock_entry stock[MAX_ITEMS];"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.c::stock_count",
+      "name": "stock_count",
+      "type": "global",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.c",
+      "line_start": 10,
+      "line_end": 10,
+      "parent": "c-shop-sample/src/inventory.c",
+      "signature": "static int stock_count = 0;"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.c::stock_entry",
+      "name": "stock_entry",
+      "type": "struct",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.c",
+      "line_start": 4,
+      "line_end": 7,
+      "parent": "c-shop-sample/src/inventory.c",
+      "signature": "struct stock_entry"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.c::stock_entry::item",
+      "name": "item",
+      "type": "field",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.c",
+      "line_start": 5,
+      "line_end": 5,
+      "parent": "c-shop-sample/src/inventory.c::stock_entry",
+      "signature": "char item[32];",
+      "value_type": "char"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.c::stock_entry::quantity",
+      "name": "quantity",
+      "type": "field",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.c",
+      "line_start": 6,
+      "line_end": 6,
+      "parent": "c-shop-sample/src/inventory.c::stock_entry",
+      "signature": "int quantity;",
+      "value_type": "int"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.h",
+      "name": "inventory.h",
+      "type": "file",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.h",
+      "line_start": 1,
+      "line_end": 11,
+      "parent": null,
+      "hash": "ecf5fea73312f036"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.h::inventory_restock/2",
+      "name": "inventory_restock",
+      "type": "function_declaration",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.h",
+      "line_start": 6,
+      "line_end": 6,
+      "parent": "c-shop-sample/src/inventory.h",
+      "arity": 2,
+      "signature": "void inventory_restock(const char *item, int quantity);"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.h::inventory_reserve/2",
+      "name": "inventory_reserve",
+      "type": "function_declaration",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.h",
+      "line_start": 7,
+      "line_end": 7,
+      "parent": "c-shop-sample/src/inventory.h",
+      "arity": 2,
+      "signature": "int inventory_reserve(const char *item, int quantity);"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.h::inventory_release/2",
+      "name": "inventory_release",
+      "type": "function_declaration",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.h",
+      "line_start": 8,
+      "line_end": 8,
+      "parent": "c-shop-sample/src/inventory.h",
+      "arity": 2,
+      "signature": "void inventory_release(const char *item, int quantity);"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.h::inventory_status/1",
+      "name": "inventory_status",
+      "type": "function_declaration",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.h",
+      "line_start": 9,
+      "line_end": 9,
+      "parent": "c-shop-sample/src/inventory.h",
+      "arity": 1,
+      "signature": "int inventory_status(const char *item);"
+    },
+    {
+      "id": "c-shop-sample/src/inventory.h::MAX_ITEMS",
+      "name": "MAX_ITEMS",
+      "type": "macro",
+      "language": "c",
+      "file": "c-shop-sample/src/inventory.h",
+      "line_start": 4,
+      "line_end": 4,
+      "parent": "c-shop-sample/src/inventory.h",
+      "signature": "#define MAX_ITEMS 8"
+    },
+    {
+      "id": "c-shop-sample/src/main.c",
+      "name": "main.c",
+      "type": "file",
+      "language": "c",
+      "file": "c-shop-sample/src/main.c",
+      "line_start": 1,
+      "line_end": 23,
+      "parent": null,
+      "hash": "bb39ba2d06a2b213"
+    },
+    {
+      "id": "c-shop-sample/src/main.c::main/0",
+      "name": "main",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/main.c",
+      "line_start": 7,
+      "line_end": 23,
+      "parent": "c-shop-sample/src/main.c",
+      "arity": 0,
+      "signature": "int main(void)"
+    },
+    {
+      "id": "c-shop-sample/src/order.h",
+      "name": "order.h",
+      "type": "file",
+      "language": "c",
+      "file": "c-shop-sample/src/order.h",
+      "line_start": 1,
+      "line_end": 15,
+      "parent": null,
+      "hash": "e3830af509b0ab11"
+    },
+    {
+      "id": "c-shop-sample/src/order.h::order",
+      "name": "order",
+      "type": "struct",
+      "language": "c",
+      "file": "c-shop-sample/src/order.h",
+      "line_start": 6,
+      "line_end": 13,
+      "parent": "c-shop-sample/src/order.h",
+      "signature": "struct order"
+    },
+    {
+      "id": "c-shop-sample/src/order.h::order::order_id",
+      "name": "order_id",
+      "type": "field",
+      "language": "c",
+      "file": "c-shop-sample/src/order.h",
+      "line_start": 7,
+      "line_end": 7,
+      "parent": "c-shop-sample/src/order.h::order",
+      "signature": "char order_id[16];",
+      "value_type": "char"
+    },
+    {
+      "id": "c-shop-sample/src/order.h::order::user_id",
+      "name": "user_id",
+      "type": "field",
+      "language": "c",
+      "file": "c-shop-sample/src/order.h",
+      "line_start": 8,
+      "line_end": 8,
+      "parent": "c-shop-sample/src/order.h::order",
+      "signature": "char user_id[16];",
+      "value_type": "char"
+    },
+    {
+      "id": "c-shop-sample/src/order.h::order::item",
+      "name": "item",
+      "type": "field",
+      "language": "c",
+      "file": "c-shop-sample/src/order.h",
+      "line_start": 9,
+      "line_end": 9,
+      "parent": "c-shop-sample/src/order.h::order",
+      "signature": "char item[32];",
+      "value_type": "char"
+    },
+    {
+      "id": "c-shop-sample/src/order.h::order::quantity",
+      "name": "quantity",
+      "type": "field",
+      "language": "c",
+      "file": "c-shop-sample/src/order.h",
+      "line_start": 10,
+      "line_end": 10,
+      "parent": "c-shop-sample/src/order.h::order",
+      "signature": "int quantity;",
+      "value_type": "int"
+    },
+    {
+      "id": "c-shop-sample/src/order.h::order::total_cents",
+      "name": "total_cents",
+      "type": "field",
+      "language": "c",
+      "file": "c-shop-sample/src/order.h",
+      "line_start": 11,
+      "line_end": 11,
+      "parent": "c-shop-sample/src/order.h::order",
+      "signature": "int total_cents;",
+      "value_type": "int"
+    },
+    {
+      "id": "c-shop-sample/src/order.h::order::status",
+      "name": "status",
+      "type": "field",
+      "language": "c",
+      "file": "c-shop-sample/src/order.h",
+      "line_start": 12,
+      "line_end": 12,
+      "parent": "c-shop-sample/src/order.h::order",
+      "signature": "char status[16];",
+      "value_type": "char"
+    },
+    {
+      "id": "c-shop-sample/src/order.h::MAX_ORDERS",
+      "name": "MAX_ORDERS",
+      "type": "macro",
+      "language": "c",
+      "file": "c-shop-sample/src/order.h",
+      "line_start": 4,
+      "line_end": 4,
+      "parent": "c-shop-sample/src/order.h",
+      "signature": "#define MAX_ORDERS 16"
+    },
+    {
+      "id": "c-shop-sample/src/order_repo.c",
+      "name": "order_repo.c",
+      "type": "file",
+      "language": "c",
+      "file": "c-shop-sample/src/order_repo.c",
+      "line_start": 1,
+      "line_end": 40,
+      "parent": null,
+      "hash": "c4a2a0aaaa3747c6"
+    },
+    {
+      "id": "c-shop-sample/src/order_repo.c::order_repo_save/1",
+      "name": "order_repo_save",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/order_repo.c",
+      "line_start": 7,
+      "line_end": 14,
+      "parent": "c-shop-sample/src/order_repo.c",
+      "arity": 1,
+      "signature": "int order_repo_save(const struct order *o)"
+    },
+    {
+      "id": "c-shop-sample/src/order_repo.c::order_repo_find_by_id/1",
+      "name": "order_repo_find_by_id",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/order_repo.c",
+      "line_start": 16,
+      "line_end": 23,
+      "parent": "c-shop-sample/src/order_repo.c",
+      "arity": 1,
+      "signature": "struct order *order_repo_find_by_id(const char *order_id)"
+    },
+    {
+      "id": "c-shop-sample/src/order_repo.c::order_repo_mark_paid/1",
+      "name": "order_repo_mark_paid",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/order_repo.c",
+      "line_start": 25,
+      "line_end": 32,
+      "parent": "c-shop-sample/src/order_repo.c",
+      "arity": 1,
+      "signature": "int order_repo_mark_paid(const char *order_id)"
+    },
+    {
+      "id": "c-shop-sample/src/order_repo.c::order_repo_status/1",
+      "name": "order_repo_status",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/order_repo.c",
+      "line_start": 34,
+      "line_end": 40,
+      "parent": "c-shop-sample/src/order_repo.c",
+      "arity": 1,
+      "signature": "const char *order_repo_status(const char *order_id)"
+    },
+    {
+      "id": "c-shop-sample/src/order_repo.c::orders",
+      "name": "orders",
+      "type": "global",
+      "language": "c",
+      "file": "c-shop-sample/src/order_repo.c",
+      "line_start": 4,
+      "line_end": 4,
+      "parent": "c-shop-sample/src/order_repo.c",
+      "signature": "static struct order orders[MAX_ORDERS];"
+    },
+    {
+      "id": "c-shop-sample/src/order_repo.c::order_count",
+      "name": "order_count",
+      "type": "global",
+      "language": "c",
+      "file": "c-shop-sample/src/order_repo.c",
+      "line_start": 5,
+      "line_end": 5,
+      "parent": "c-shop-sample/src/order_repo.c",
+      "signature": "static int order_count = 0;"
+    },
+    {
+      "id": "c-shop-sample/src/order_repo.h",
+      "name": "order_repo.h",
+      "type": "file",
+      "language": "c",
+      "file": "c-shop-sample/src/order_repo.h",
+      "line_start": 1,
+      "line_end": 11,
+      "parent": null,
+      "hash": "5f3f841dee86975f"
+    },
+    {
+      "id": "c-shop-sample/src/order_repo.h::order_repo_save/1",
+      "name": "order_repo_save",
+      "type": "function_declaration",
+      "language": "c",
+      "file": "c-shop-sample/src/order_repo.h",
+      "line_start": 6,
+      "line_end": 6,
+      "parent": "c-shop-sample/src/order_repo.h",
+      "arity": 1,
+      "signature": "int order_repo_save(const struct order *o);"
+    },
+    {
+      "id": "c-shop-sample/src/order_repo.h::order_repo_find_by_id/1",
+      "name": "order_repo_find_by_id",
+      "type": "function_declaration",
+      "language": "c",
+      "file": "c-shop-sample/src/order_repo.h",
+      "line_start": 7,
+      "line_end": 7,
+      "parent": "c-shop-sample/src/order_repo.h",
+      "arity": 1,
+      "signature": "struct order *order_repo_find_by_id(const char *order_id);"
+    },
+    {
+      "id": "c-shop-sample/src/order_repo.h::order_repo_mark_paid/1",
+      "name": "order_repo_mark_paid",
+      "type": "function_declaration",
+      "language": "c",
+      "file": "c-shop-sample/src/order_repo.h",
+      "line_start": 8,
+      "line_end": 8,
+      "parent": "c-shop-sample/src/order_repo.h",
+      "arity": 1,
+      "signature": "int order_repo_mark_paid(const char *order_id);"
+    },
+    {
+      "id": "c-shop-sample/src/order_repo.h::order_repo_status/1",
+      "name": "order_repo_status",
+      "type": "function_declaration",
+      "language": "c",
+      "file": "c-shop-sample/src/order_repo.h",
+      "line_start": 9,
+      "line_end": 9,
+      "parent": "c-shop-sample/src/order_repo.h",
+      "arity": 1,
+      "signature": "const char *order_repo_status(const char *order_id);"
+    },
+    {
+      "id": "c-shop-sample/src/payment.c",
+      "name": "payment.c",
+      "type": "file",
+      "language": "c",
+      "file": "c-shop-sample/src/payment.c",
+      "line_start": 1,
+      "line_end": 25,
+      "parent": null,
+      "hash": "f4359ad42234fef8"
+    },
+    {
+      "id": "c-shop-sample/src/payment.c::payment_charge/2",
+      "name": "payment_charge",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/payment.c",
+      "line_start": 7,
+      "line_end": 18,
+      "parent": "c-shop-sample/src/payment.c",
+      "arity": 2,
+      "signature": "int payment_charge(const char *user_id, int amount_cents)"
+    },
+    {
+      "id": "c-shop-sample/src/payment.c::payment_status/1",
+      "name": "payment_status",
+      "type": "function",
+      "language": "c",
+      "file": "c-shop-sample/src/payment.c",
+      "line_start": 20,
+      "line_end": 25,
+      "parent": "c-shop-sample/src/payment.c",
+      "arity": 1,
+      "signature": "const char *payment_status(int payment_id)"
+    },
+    {
+      "id": "c-shop-sample/src/payment.c::payment_states",
+      "name": "payment_states",
+      "type": "global",
+      "language": "c",
+      "file": "c-shop-sample/src/payment.c",
+      "line_start": 4,
+      "line_end": 4,
+      "parent": "c-shop-sample/src/payment.c",
+      "signature": "static char payment_states[MAX_PAYMENTS][16];"
+    },
+    {
+      "id": "c-shop-sample/src/payment.c::payment_count",
+      "name": "payment_count",
+      "type": "global",
+      "language": "c",
+      "file": "c-shop-sample/src/payment.c",
+      "line_start": 5,
+      "line_end": 5,
+      "parent": "c-shop-sample/src/payment.c",
+      "signature": "static int payment_count = 0;"
+    },
+    {
+      "id": "c-shop-sample/src/payment.h",
+      "name": "payment.h",
+      "type": "file",
+      "language": "c",
+      "file": "c-shop-sample/src/payment.h",
+      "line_start": 1,
+      "line_end": 11,
+      "parent": null,
+      "hash": "c22dcbaebc9a8755"
+    },
+    {
+      "id": "c-shop-sample/src/payment.h::payment_charge/2",
+      "name": "payment_charge",
+      "type": "function_declaration",
+      "language": "c",
+      "file": "c-shop-sample/src/payment.h",
+      "line_start": 8,
+      "line_end": 8,
+      "parent": "c-shop-sample/src/payment.h",
+      "arity": 2,
+      "signature": "int payment_charge(const char *user_id, int amount_cents);"
+    },
+    {
+      "id": "c-shop-sample/src/payment.h::payment_status/1",
+      "name": "payment_status",
+      "type": "function_declaration",
+      "language": "c",
+      "file": "c-shop-sample/src/payment.h",
+      "line_start": 9,
+      "line_end": 9,
+      "parent": "c-shop-sample/src/payment.h",
+      "arity": 1,
+      "signature": "const char *payment_status(int payment_id);"
+    },
+    {
+      "id": "c-shop-sample/src/payment.h::MAX_PAYMENTS",
+      "name": "MAX_PAYMENTS",
+      "type": "macro",
+      "language": "c",
+      "file": "c-shop-sample/src/payment.h",
+      "line_start": 4,
+      "line_end": 4,
+      "parent": "c-shop-sample/src/payment.h",
+      "signature": "#define MAX_PAYMENTS 16"
+    },
+    {
+      "id": "c-shop-sample/src/payment.h::PAYMENT_ERR_AMOUNT",
+      "name": "PAYMENT_ERR_AMOUNT",
+      "type": "macro",
+      "language": "c",
+      "file": "c-shop-sample/src/payment.h",
+      "line_start": 5,
+      "line_end": 5,
+      "parent": "c-shop-sample/src/payment.h",
+      "signature": "#define PAYMENT_ERR_AMOUNT -1"
+    },
+    {
+      "id": "c-shop-sample/src/payment.h::PAYMENT_ERR_FULL",
+      "name": "PAYMENT_ERR_FULL",
+      "type": "macro",
+      "language": "c",
+      "file": "c-shop-sample/src/payment.h",
+      "line_start": 6,
+      "line_end": 6,
+      "parent": "c-shop-sample/src/payment.h",
+      "signature": "#define PAYMENT_ERR_FULL -2"
+    }
+  ],
+  "edges": [
+    {
+      "from": "c-shop-sample/src/checkout.c",
+      "to": "c-shop-sample/src/checkout.c::checkout_process/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.h",
+      "to": "c-shop-sample/src/checkout.h::checkout_process/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.h",
+      "to": "c-shop-sample/src/checkout.h::CHECKOUT_ERR_NOT_FOUND",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.h",
+      "to": "c-shop-sample/src/checkout.h::CHECKOUT_ERR_STOCK",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.h",
+      "to": "c-shop-sample/src/checkout.h::CHECKOUT_ERR_PAYMENT",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c",
+      "to": "c-shop-sample/src/inventory.c::stock_find/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c",
+      "to": "c-shop-sample/src/inventory.c::inventory_restock/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c",
+      "to": "c-shop-sample/src/inventory.c::inventory_reserve/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c",
+      "to": "c-shop-sample/src/inventory.c::inventory_release/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c",
+      "to": "c-shop-sample/src/inventory.c::inventory_status/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c",
+      "to": "c-shop-sample/src/inventory.c::stock",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c",
+      "to": "c-shop-sample/src/inventory.c::stock_count",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c",
+      "to": "c-shop-sample/src/inventory.c::stock_entry",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c::stock_entry",
+      "to": "c-shop-sample/src/inventory.c::stock_entry::item",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c::stock_entry",
+      "to": "c-shop-sample/src/inventory.c::stock_entry::quantity",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c",
+      "to": "string.h",
+      "type": "includes",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.h",
+      "to": "c-shop-sample/src/inventory.h::inventory_restock/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.h",
+      "to": "c-shop-sample/src/inventory.h::inventory_reserve/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.h",
+      "to": "c-shop-sample/src/inventory.h::inventory_release/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.h",
+      "to": "c-shop-sample/src/inventory.h::inventory_status/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.h",
+      "to": "c-shop-sample/src/inventory.h::MAX_ITEMS",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/main.c",
+      "to": "c-shop-sample/src/main.c::main/0",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/main.c",
+      "to": "stdio.h",
+      "type": "includes",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/main.c",
+      "to": "string.h",
+      "type": "includes",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order.h",
+      "to": "c-shop-sample/src/order.h::order",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order.h::order",
+      "to": "c-shop-sample/src/order.h::order::order_id",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order.h::order",
+      "to": "c-shop-sample/src/order.h::order::user_id",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order.h::order",
+      "to": "c-shop-sample/src/order.h::order::item",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order.h::order",
+      "to": "c-shop-sample/src/order.h::order::quantity",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order.h::order",
+      "to": "c-shop-sample/src/order.h::order::total_cents",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order.h::order",
+      "to": "c-shop-sample/src/order.h::order::status",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order.h",
+      "to": "c-shop-sample/src/order.h::MAX_ORDERS",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.c",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_save/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.c",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_find_by_id/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.c",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_mark_paid/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.c",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_status/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.c",
+      "to": "c-shop-sample/src/order_repo.c::orders",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.c",
+      "to": "c-shop-sample/src/order_repo.c::order_count",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.c",
+      "to": "string.h",
+      "type": "includes",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.h",
+      "to": "c-shop-sample/src/order_repo.h::order_repo_save/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.h",
+      "to": "c-shop-sample/src/order_repo.h::order_repo_find_by_id/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.h",
+      "to": "c-shop-sample/src/order_repo.h::order_repo_mark_paid/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.h",
+      "to": "c-shop-sample/src/order_repo.h::order_repo_status/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.c",
+      "to": "c-shop-sample/src/payment.c::payment_charge/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.c",
+      "to": "c-shop-sample/src/payment.c::payment_status/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.c",
+      "to": "c-shop-sample/src/payment.c::payment_states",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.c",
+      "to": "c-shop-sample/src/payment.c::payment_count",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.c",
+      "to": "string.h",
+      "type": "includes",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.h",
+      "to": "c-shop-sample/src/payment.h::payment_charge/2",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.h",
+      "to": "c-shop-sample/src/payment.h::payment_status/1",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.h",
+      "to": "c-shop-sample/src/payment.h::MAX_PAYMENTS",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.h",
+      "to": "c-shop-sample/src/payment.h::PAYMENT_ERR_AMOUNT",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.h",
+      "to": "c-shop-sample/src/payment.h::PAYMENT_ERR_FULL",
+      "type": "contains",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.c::checkout_process/1",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_find_by_id/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.c::checkout_process/1",
+      "to": "c-shop-sample/src/inventory.c::inventory_reserve/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.c::checkout_process/1",
+      "to": "c-shop-sample/src/payment.c::payment_charge/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.c::checkout_process/1",
+      "to": "c-shop-sample/src/inventory.c::inventory_release/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.c::checkout_process/1",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_mark_paid/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c::stock_find/1",
+      "to": "strcmp",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c::inventory_restock/2",
+      "to": "c-shop-sample/src/inventory.c::stock_find/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c::inventory_restock/2",
+      "to": "strcpy",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c::inventory_reserve/2",
+      "to": "c-shop-sample/src/inventory.c::stock_find/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c::inventory_release/2",
+      "to": "c-shop-sample/src/inventory.c::inventory_restock/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c::inventory_status/1",
+      "to": "c-shop-sample/src/inventory.c::stock_find/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/main.c::main/0",
+      "to": "strcpy",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 4
+    },
+    {
+      "from": "c-shop-sample/src/main.c::main/0",
+      "to": "c-shop-sample/src/inventory.c::inventory_restock/2",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/main.c::main/0",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_save/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/main.c::main/0",
+      "to": "c-shop-sample/src/checkout.c::checkout_process/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/main.c::main/0",
+      "to": "printf",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/main.c::main/0",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_status/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/main.c::main/0",
+      "to": "c-shop-sample/src/inventory.c::inventory_status/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.c::order_repo_find_by_id/1",
+      "to": "strcmp",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.c::order_repo_mark_paid/1",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_find_by_id/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.c::order_repo_mark_paid/1",
+      "to": "strcpy",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.c::order_repo_status/1",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_find_by_id/1",
+      "type": "calls",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.c::payment_charge/2",
+      "to": "strcpy",
+      "type": "calls",
+      "external": true,
+      "resolution": "external",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.c",
+      "to": "c-shop-sample/src/checkout.h",
+      "type": "includes",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.c",
+      "to": "c-shop-sample/src/inventory.h",
+      "type": "includes",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.c",
+      "to": "c-shop-sample/src/order_repo.h",
+      "type": "includes",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.c",
+      "to": "c-shop-sample/src/payment.h",
+      "type": "includes",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.c",
+      "to": "c-shop-sample/src/inventory.h",
+      "type": "includes",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/main.c",
+      "to": "c-shop-sample/src/checkout.h",
+      "type": "includes",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/main.c",
+      "to": "c-shop-sample/src/inventory.h",
+      "type": "includes",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/main.c",
+      "to": "c-shop-sample/src/order_repo.h",
+      "type": "includes",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.c",
+      "to": "c-shop-sample/src/order_repo.h",
+      "type": "includes",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.h",
+      "to": "c-shop-sample/src/order.h",
+      "type": "includes",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.c",
+      "to": "c-shop-sample/src/payment.h",
+      "type": "includes",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/checkout.h::checkout_process/1",
+      "to": "c-shop-sample/src/checkout.c::checkout_process/1",
+      "type": "defined_by",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.h::inventory_restock/2",
+      "to": "c-shop-sample/src/inventory.c::inventory_restock/2",
+      "type": "defined_by",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.h::inventory_reserve/2",
+      "to": "c-shop-sample/src/inventory.c::inventory_reserve/2",
+      "type": "defined_by",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.h::inventory_release/2",
+      "to": "c-shop-sample/src/inventory.c::inventory_release/2",
+      "type": "defined_by",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/inventory.h::inventory_status/1",
+      "to": "c-shop-sample/src/inventory.c::inventory_status/1",
+      "type": "defined_by",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.h::order_repo_save/1",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_save/1",
+      "type": "defined_by",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.h::order_repo_find_by_id/1",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_find_by_id/1",
+      "type": "defined_by",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.h::order_repo_mark_paid/1",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_mark_paid/1",
+      "type": "defined_by",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/order_repo.h::order_repo_status/1",
+      "to": "c-shop-sample/src/order_repo.c::order_repo_status/1",
+      "type": "defined_by",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.h::payment_charge/2",
+      "to": "c-shop-sample/src/payment.c::payment_charge/2",
+      "type": "defined_by",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    },
+    {
+      "from": "c-shop-sample/src/payment.h::payment_status/1",
+      "to": "c-shop-sample/src/payment.c::payment_status/1",
+      "type": "defined_by",
+      "external": false,
+      "resolution": "internal",
+      "count": 1
+    }
+  ]
+}
