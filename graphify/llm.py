@@ -20,7 +20,15 @@ _SESSION = requests.Session()
 
 
 class LLMError(RuntimeError):
-    """Raised when the API cannot be reached or refuses the request."""
+    """Raised when the provider or local model policy refuses a request."""
+
+    def __init__(self, message: str, *, status_code: int | None = None):
+        super().__init__(message)
+        self.status_code = status_code
+
+    @property
+    def is_access_denied(self) -> bool:
+        return self.status_code in {401, 403}
 
 
 def _headers(api_key: str) -> dict:
@@ -79,7 +87,10 @@ def _post(url: str, api_key: str, payload: dict, *, stream: bool = False):
                 request_id = resp.headers.get("x-request-id") or resp.headers.get("request-id")
                 resp.close()
                 suffix = f" (request {request_id})" if request_id else ""
-                raise LLMError(f"Model provider returned HTTP {status}{suffix}.")
+                raise LLMError(
+                    f"Model provider returned HTTP {status}{suffix}.",
+                    status_code=status,
+                )
             return resp
         if attempt < config.MAX_RETRIES - 1:
             time.sleep(_sleep_for(attempt, None))
@@ -152,10 +163,17 @@ def chat_with_fallback(api_key: str, preferred: str, messages: list, **kwargs):
     for index, model in enumerate(chain):
         try:
             return chat(api_key, model, messages, **kwargs), model, notes
-        except LLMError as e:
-            notes.append(f"{model}: {e}")
+        except LLMError as exc:
+            if exc.is_access_denied:
+                raise LLMError(
+                    "NVIDIA rejected the configured API key or account access "
+                    f"(HTTP {exc.status_code}). Replace NVIDIA_API_KEY with an active "
+                    "key that is authorized for the configured endpoint.",
+                    status_code=exc.status_code,
+                ) from exc
+            notes.append(f"{model}: {exc}")
             if index == len(chain) - 1:
-                raise LLMError("Every known model failed:\n" + "\n".join(notes)) from e
+                raise LLMError("Every known model failed:\n" + "\n".join(notes)) from exc
     raise LLMError("No models configured")
 
 

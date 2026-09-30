@@ -218,12 +218,12 @@ with st.sidebar:
     )
 
     st.markdown('<div class="graphify-section">ACTIONS</div>', unsafe_allow_html=True)
-    if st.button("↻  Rebuild knowledge graph", use_container_width=True,
+    if st.button("↻  Rebuild knowledge graph", width="stretch",
                  disabled=not config.ALLOW_UI_REBUILD):
         if rebuild_graph(target):
             st.cache_data.clear()
             st.rerun()
-    if st.button("⌫  Clear conversation", use_container_width=True):
+    if st.button("⌫  Clear conversation", width="stretch"):
         st.session_state.messages = []
         st.rerun()
     if not config.ALLOW_UI_REBUILD:
@@ -340,11 +340,11 @@ if not st.session_state.messages:
         for index, (column, name) in enumerate(zip(prompt_columns, qualified)):
             with column:
                 if st.button(f"✦  Explain {name}", key=f"starter-{target}-{index}",
-                             use_container_width=True):
+                             width="stretch"):
                     starter_question = f"What does {name} do?"
 
 for msg in st.session_state.messages:
-    avatar = "◈" if msg["role"] == "assistant" else "●"
+    avatar = "🤖" if msg["role"] == "assistant" else "👤"
     with st.chat_message(msg["role"], avatar=avatar):
         st.markdown(msg["content"])
 
@@ -398,7 +398,7 @@ def render_details(result, blocks):
         dot = viz.neighbourhood_dot(graph, blocks)
         if dot:
             with st.expander("◇  Relationship map", expanded=False):
-                st.graphviz_chart(dot, use_container_width=True)
+                st.graphviz_chart(dot, width="stretch")
                 st.caption("Solid blue: internal · dashed green: local binding · "
                            "dotted grey: external/library")
 
@@ -410,10 +410,10 @@ typed_question = st.chat_input(
 question = starter_question or typed_question
 if question:
     st.session_state.messages.append({"role": "user", "content": question})
-    with st.chat_message("user", avatar="●"):
+    with st.chat_message("user", avatar="👤"):
         st.markdown(question)
 
-    with st.chat_message("assistant", avatar="◈"):
+    with st.chat_message("assistant", avatar="🤖"):
         with st.spinner("Mapping your question to verified symbols…"):
             result = retrieve(graph, question, api_key=api_key, model=model,
                               semantic_mode=semantic_mode)
@@ -448,6 +448,8 @@ if question:
                         placeholder.markdown("".join(buffer))
                     raw = "".join(buffer)
                 except LLMError as stream_error:
+                    if stream_error.is_access_denied:
+                        raise
                     placeholder.info(f"{model} unavailable, trying a fallback model...")
                     raw, used_model, _ = chat_with_fallback(api_key, model, messages)
                     st.caption(f"Streaming was unavailable; answered by `{used_model}`.")
@@ -485,8 +487,13 @@ if question:
                 elif blocks:
                     st.success("Verified: every symbol name and line range in the answer "
                                "matches the graph.")
-            except LLMError as e:
-                answer = f"**LLM error:** {e}"
+            except LLMError as exc:
+                if exc.is_access_denied:
+                    answer = ("**NVIDIA access denied.** Replace `NVIDIA_API_KEY` in `.env` "
+                              "with an active key authorized for the configured endpoint, "
+                              "then restart Graphify.")
+                else:
+                    answer = f"**Explanation unavailable:** {exc}"
                 placeholder.error(answer)
 
     st.session_state.messages.append({"role": "assistant", "content": answer})
