@@ -61,7 +61,7 @@ def load_or_build_index(graph, api_key: str, model: str | None = None,
     the codebase and rebuilding the graph rebuilds the vectors too.
     """
     model = model or config.EMBED_MODEL
-    graph_hash = graph.meta.get("hash", "")
+    graph_hash = graph.meta.get("artifact_id") or graph.meta.get("hash", "")
     path = _cache_path(graph)
 
     if path is not None and path.exists():

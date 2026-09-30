@@ -1,0 +1,41 @@
+# Version-control and delivery metadata
+.git
+.github
+docs
+SECURITY.md
+README.md
+
+# Secrets and local configuration: never send these to the build context
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python environments and generated caches
+venv
+.venv
+__pycache__
+**/__pycache__
+.pytest_cache
+.mypy_cache
+.ruff_cache
+*.py[cod]
+
+# Source repositories and derived graphs must be mounted at runtime, never baked in
+codebase
+outputs
+questions_to_ask.txt
+
+# Local test/development material not needed by the Streamlit runtime
+tests
+.coverage
+htmlcov
+_s.txt
+
+# Editor and OS files
+.vscode
+.idea
+.DS_Store
+Thumbs.db

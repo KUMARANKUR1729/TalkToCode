@@ -21,7 +21,7 @@ import re
 from dataclasses import dataclass, field
 
 from . import config, semantic
-from .graph import read_snippet
+from .graph import read_snippet, read_snippets
 from .lexical import Bm25Index, tokenize
 
 QUALIFIED_RE = re.compile(r"\b([A-Za-z_]\w*)\.([A-Za-z_]\w*)\b")
@@ -138,15 +138,10 @@ def _dedupe(nodes: list, limit: int) -> list:
 
 
 def _snippets_for_index(graph, codebase_dir, max_files: int = 400) -> dict:
+    """Extract index snippets while reading each source file at most once."""
     if len(graph.symbols) > max_files * 8:
         return {}
-    snippets = {}
-    for node in graph.symbols:
-        try:
-            snippets[node["id"]] = read_snippet(node, codebase_dir)
-        except OSError:
-            continue
-    return snippets
+    return read_snippets(graph.symbols, codebase_dir)
 
 
 # ---------- layer 1: qualified ----------
@@ -284,7 +279,8 @@ _INDEX_CACHE = {}
 
 def _lexical_index(graph, codebase_dir):
     """Build (and memoise) the BM25 index over name + signature + doc + code."""
-    key = (graph.meta.get("hash", ""), graph.target, str(codebase_dir))
+    key = (graph.meta.get("artifact_id") or graph.meta.get("hash", ""),
+           graph.target, str(codebase_dir))
     cached = _INDEX_CACHE.get(key)
     if cached is not None:
         return cached
@@ -302,6 +298,8 @@ def _lexical_index(graph, codebase_dir):
         docs.append(tokenize(text))
 
     index = (nodes, Bm25Index(docs, b=LENGTH_NORM_B)) if docs else (nodes, None)
+    while len(_INDEX_CACHE) >= config.INDEX_CACHE_SIZE:
+        _INDEX_CACHE.pop(next(iter(_INDEX_CACHE)))
     _INDEX_CACHE[key] = index
     return index
 
@@ -359,7 +357,11 @@ def _suggestions(graph, question: str, limit: int = 5) -> list:
 def retrieve(graph, question: str, *, api_key: str = "", model: str | None = None,
              codebase_dir=None, semantic_mode: str | None = None,
              limit: int | None = None) -> Retrieval:
-    limit = limit or config.MAX_CONTEXT_NODES
+    if not isinstance(question, str) or not question.strip():
+        raise ValueError("Question must be non-empty.")
+    if len(question) > config.MAX_QUESTION_CHARS:
+        raise ValueError(f"Question exceeds {config.MAX_QUESTION_CHARS} characters.")
+    limit = min(limit or config.MAX_CONTEXT_NODES, config.MAX_CONTEXT_NODES)
     model = model or config.DEFAULT_MODEL
     semantic_mode = (semantic_mode or config.SEMANTIC_MODE).lower()
     result = Retrieval(question=question)
@@ -472,8 +474,9 @@ def gather_context(graph, matches: list, codebase_dir=None) -> list:
     Nothing else is ever sent to the model.
     """
     blocks = []
-    for match in matches:
-        node = match.node if isinstance(match, Match) else match
+    nodes = [match.node if isinstance(match, Match) else match for match in matches]
+    snippets = read_snippets(nodes, codebase_dir)
+    for match, node in zip(matches, nodes):
         callers = [_endpoint(graph, e, "from") for e in graph.callers(node["id"])]
         callees = [_endpoint(graph, e, "to") for e in graph.callees(node["id"])]
         parent = graph.by_id.get(node.get("parent") or "")
@@ -481,7 +484,7 @@ def gather_context(graph, matches: list, codebase_dir=None) -> list:
             "node": node,
             "qualified_name": graph.qualified_name(node),
             "parent": parent,
-            "snippet": read_snippet(node, codebase_dir),
+            "snippet": snippets.get(node["id"], "(source snippet unavailable)"),
             "callers": callers,
             "callees": callees,
             "children": graph.children(node["id"]),

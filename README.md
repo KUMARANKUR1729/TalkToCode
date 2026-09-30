@@ -1,17 +1,18 @@
 # Graphify — talk to your code, grounded in a real parse
 
-Real parsers build a knowledge graph. A Streamlit app answers questions about
-the code using only that graph plus an NVIDIA-hosted LLM. The model never reads
-the codebase — it only explains facts it is handed.
+Real parsers build a validated knowledge graph. A Streamlit app retrieves grounded
+code facts locally and can optionally use an approved NVIDIA-hosted LLM to explain
+them. External model access is deny-by-default, and only selected snippets—not an
+unbounded repository—are sent when an operator explicitly enables egress.
 
 ## Quick start
 
 ```bash
 python -m venv venv
 .\venv\Scripts\Activate          # Windows;  source venv/bin/activate elsewhere
-pip install -r requirements.txt
-copy .env.example .env           # then put your NVIDIA_API_KEY in it
-python run_graphify.py --all     # build graphs for all 4 sample codebases
+pip install -r requirements-dev.txt
+copy .env.example .env           # keep egress off, or explicitly approve/enable it
+python run_graphify.py --all     # atomically build/checksum all sample graphs
 streamlit run app.py
 ```
 
@@ -19,7 +20,7 @@ Pick a codebase in the sidebar and ask something, or copy a question from
 `questions_to_ask.txt`.
 
 ```bash
-python -m pytest                     # 155 tests, no network needed
+python -m pytest                     # offline unit/security/structural tests
 python smoke_test.py --offline       # run the real questions, retrieval only
 python smoke_test.py                 # same, with the LLM and the verifier
 python -m graphify.check_models      # which models your key can actually reach
@@ -75,7 +76,8 @@ parsers/                 syntax-tree parsing -> knowledge graph
 run_graphify.py          CLI: walk a codebase, dispatch per file, write JSON
 
 graphify/                everything the app thinks with — no Streamlit imports
-  config.py              env-var configuration
+  artifacts.py           schema validation, safe paths, checksums, atomic versions
+  config.py              validated, bounded environment policy
   graph.py               loading, indexing, staleness detection, snippets
   lexical.py             identifier-aware tokenisation + BM25
   semantic.py            embeddings and chat-model symbol selection
@@ -152,23 +154,32 @@ quietly answered using `useAuth`.
 The graph stores line numbers and the app slices files with them, so code edited
 after a build would feed the model the wrong lines while sounding just as
 confident. Every file node carries a content hash; the app compares it against
-disk on load and refuses to stay quiet about a mismatch. Rebuild from the
-sidebar or with `python run_graphify.py --all`.
+disk on load and blocks queries when the graph is changed, missing, unverifiable,
+or incomplete. Rebuild from the sidebar when policy permits, or with
+`python run_graphify.py --all`.
 
-## Configuration
+## Configuration and security defaults
 
-All via `.env` — see `.env.example`.
+Configuration is validated in `graphify/config.py`; `.env.example` documents all
+limits and policy switches. Local `.env` files are for development only—production
+must inject managed secrets or workload identity.
 
 | Variable | Purpose |
 |---|---|
-| `NVIDIA_API_KEY` | required |
-| `NVIDIA_MODEL` | chat model; falls back automatically if unavailable |
-| `NVIDIA_EMBED_MODEL` | embedding model for semantic retrieval |
-| `GRAPHIFY_SEMANTIC` | `auto` / `embeddings` / `llm` / `off` |
-| `GRAPHIFY_TIMEOUT`, `GRAPHIFY_MAX_RETRIES`, `GRAPHIFY_MAX_NODES` | tuning |
+| `GRAPHIFY_ENV` | `development`, `test`, or `production` |
+| `GRAPHIFY_TRUSTED_AUTH_BOUNDARY` | required acknowledgement in production after OIDC/repository authorization is deployed upstream |
+| `GRAPHIFY_ALLOW_EXTERNAL_LLM` | explicit model-egress opt-in; defaults to `false` |
+| `GRAPHIFY_ALLOWED_LLM_HOSTS` | HTTPS destination allowlist |
+| `GRAPHIFY_SEMANTIC` | `auto`, `embeddings`, `llm`, or local-only `off` |
+| `GRAPHIFY_ALLOW_UI_REBUILD` | controls synchronous rebuild capability in Streamlit |
+| `GRAPHIFY_REQUIRE_ARTIFACT_CHECKSUM` | mandatory automatically in production |
+| `GRAPHIFY_MAX_*` | question, context, file, repository, graph, cache, and timeout limits |
 
-`GRAPHIFY_SEMANTIC=off` keeps retrieval entirely offline; only the final
-explanation needs the network.
+With external access disabled, Graphify performs retrieval and deterministic
+not-found responses locally. To test online models in an approved development
+environment, set `GRAPHIFY_ALLOW_EXTERNAL_LLM=true`, provide the key through the
+environment, and select an online semantic mode if desired. Browser-entered keys
+remain disabled unless separately opted in.
 
 ### On the model choice
 
@@ -183,6 +194,23 @@ reasoning text is stripped by `prompting.normalize_answer` either way.
 Models get retired: several defaults that once worked now return HTTP 410.
 `python -m graphify.check_models` tells you what your key can reach, and the
 client walks down the known-model list rather than dying on one outage.
+
+## Enterprise boundary
+
+Graph artifacts are now schema-validated, size-bounded, checksummed, atomically
+published, and retained locally by immutable artifact ID. Unsafe target names,
+path traversal, source symlinks, oversized inputs, stale graphs, incomplete graphs,
+and answers that still fail grounding verification are refused. Builds are complete
+by default; `--allow-partial` is an explicit unsafe diagnostic override.
+
+The included CI, non-root container, security policy, architecture, threat model,
+and operations runbook provide a delivery baseline. Streamlit is still an internal
+UI, **not** an authentication or tenant boundary. Before shared production use,
+implement the provider-dependent target described in `docs/architecture.md`:
+OIDC-aware gateway/API, repository-scoped authorization, isolated queue workers,
+managed secrets, tenant-scoped immutable object storage, centralized telemetry,
+and governed/private model egress. See `SECURITY.md`, `docs/threat-model.md`, and
+`docs/operations.md`.
 
 ## Known limitations
 
@@ -200,8 +228,9 @@ client walks down the known-model list rather than dying on one outage.
 * **Method-level granularity.** The graph has no statement-level nodes, so
   "which line throws when the password is wrong" is answered from the enclosing
   method's snippet rather than pinpointed.
-* **Retrieval reads whole files to build its index.** Fine for these samples;
-  a large repository would want the index persisted alongside the graph.
+* **In-memory retrieval indexes.** Source files are now read once per index build
+  and caches are bounded, but a large multi-process deployment still needs a
+  persistent inverted/vector index alongside immutable graph versions.
 * **Instance attributes are not fields.** Python class-level declarations
   (including `@dataclass` fields) become `field` nodes, but `self.x = ...` inside
   `__init__` does not — that needs flow analysis, not a syntax walk.

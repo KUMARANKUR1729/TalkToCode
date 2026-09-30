@@ -100,67 +100,126 @@ class CodeGraph:
 
 
 def list_targets(outputs_dir: Path | None = None) -> list:
-    """Codebases that already have a built graph."""
+    """Validated codebase names that have a current graph artifact."""
+    from .artifacts import ArtifactError, validate_target
+
     outputs_dir = outputs_dir or config.OUTPUTS_DIR
     if not outputs_dir.exists():
         return []
-    return sorted(p.parent.name for p in outputs_dir.glob("*/knowledge_graph.json"))
+    targets = []
+    for path in outputs_dir.glob("*/knowledge_graph.json"):
+        try:
+            targets.append(validate_target(path.parent.name))
+        except ArtifactError:
+            continue
+    return sorted(set(targets))
 
 
 def list_codebases(codebase_dir: Path | None = None) -> list:
-    """
-    Parseable source folders on disk, whether or not a graph exists yet.
-
-    Without this the app could only ever show codebases that had already been
-    built from the CLI, so dropping a new project into codebase/ left it
-    invisible — the one flow the app most obviously should support.
-    """
+    """Parseable, safely named source folders on disk."""
     from parsers.registry import SKIP_DIRS, has_source
+    from .artifacts import ArtifactError, validate_target
 
     codebase_dir = codebase_dir or config.CODEBASE_DIR
     if not codebase_dir.exists():
         return []
-    return sorted(p.name for p in codebase_dir.iterdir()
-                  if p.is_dir() and p.name not in SKIP_DIRS and has_source(p))
+    found = []
+    for path in codebase_dir.iterdir():
+        if not path.is_dir() or path.name in SKIP_DIRS:
+            continue
+        try:
+            validate_target(path.name)
+        except ArtifactError:
+            continue
+        if has_source(path):
+            found.append(path.name)
+    return sorted(found)
 
 
 def list_all(outputs_dir: Path | None = None, codebase_dir: Path | None = None):
-    """(every selectable target, the subset that has no graph yet)."""
+    """Return every selectable target and the subset without a graph."""
     built = list_targets(outputs_dir)
     on_disk = list_codebases(codebase_dir)
-    unbuilt = [t for t in on_disk if t not in built]
+    unbuilt = [target for target in on_disk if target not in built]
     return sorted(set(built) | set(on_disk)), unbuilt
 
 
 def load_graph(target: str, outputs_dir: Path | None = None) -> CodeGraph:
+    """Load a size-bounded, checksummed, schema-validated graph artifact."""
+    from .artifacts import (ArtifactError, safe_child, validate_graph_data,
+                            validate_target, verify_checksum)
+
     outputs_dir = outputs_dir or config.OUTPUTS_DIR
-    path = outputs_dir / target / "knowledge_graph.json"
-    raw = json.loads(path.read_text(encoding="utf-8"))
-    return CodeGraph(target=target, meta=raw.get("meta", {}),
-                     nodes=raw.get("nodes", []), edges=raw.get("edges", []), path=path)
+    validate_target(target)
+    path = safe_child(outputs_dir, f"{target}/knowledge_graph.json", must_exist=True)
+    size = path.stat().st_size
+    if size > config.MAX_GRAPH_BYTES:
+        raise ArtifactError(f"Graph artifact exceeds {config.MAX_GRAPH_BYTES} bytes.")
+    data = path.read_bytes()
+    verify_checksum(path, data)
+    try:
+        raw = json.loads(data)
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ArtifactError(f"Malformed graph artifact for {target}.") from exc
+    validate_graph_data(raw, expected_target=target)
+    return CodeGraph(target=target, meta=raw["meta"], nodes=raw["nodes"],
+                     edges=raw["edges"], path=path)
 
 
 # ---------- snippets & staleness ----------
 
 def source_path(node_file: str, codebase_dir: Path | None = None) -> Path:
-    codebase_dir = codebase_dir or config.CODEBASE_DIR
-    return codebase_dir / node_file
+    """Resolve an artifact path while enforcing the configured repository root."""
+    from .artifacts import safe_child
+
+    return safe_child(codebase_dir or config.CODEBASE_DIR, node_file)
 
 
-def read_snippet(node: dict, codebase_dir: Path | None = None) -> str:
-    """
-    Reads exactly the node's line range from disk. Line numbers come from the
-    parser, so this is a slice, never a search.
-    """
-    path = source_path(node["file"], codebase_dir)
+def _source_lines(node_file: str, codebase_dir: Path | None = None) -> list[str]:
+    path = source_path(node_file, codebase_dir)
     if not path.exists():
-        return "(source file not found on disk)"
-    lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        raise FileNotFoundError(path)
+    if not path.is_file():
+        raise OSError(f"Source path is not a file: {node_file}")
+    if path.stat().st_size > config.MAX_SOURCE_FILE_BYTES:
+        raise OSError(f"Source file exceeds {config.MAX_SOURCE_FILE_BYTES} bytes: {node_file}")
+    return path.read_text(encoding="utf-8", errors="replace").splitlines()
+
+
+def _slice_lines(node: dict, lines: list[str]) -> str:
     start = max(1, int(node["line_start"]))
     end = min(len(lines), int(node["line_end"]))
     if start > len(lines):
         return "(line range is outside the current file — graph is stale)"
-    return "\n".join(lines[start - 1:end])
+    snippet = "\n".join(lines[start - 1:end])
+    if len(snippet) > config.MAX_SNIPPET_CHARS:
+        return snippet[:config.MAX_SNIPPET_CHARS] + "\n… (snippet truncated by policy)"
+    return snippet
+
+
+def read_snippet(node: dict, codebase_dir: Path | None = None) -> str:
+    """Read one validated source range without searching or following unsafe paths."""
+    try:
+        lines = _source_lines(node["file"], codebase_dir)
+    except FileNotFoundError:
+        return "(source file not found on disk)"
+    return _slice_lines(node, lines)
+
+
+def read_snippets(nodes: list[dict], codebase_dir: Path | None = None) -> dict[str, str]:
+    """Read each containing file once and return snippets keyed by node id."""
+    grouped: dict[str, list[dict]] = {}
+    for node in nodes:
+        grouped.setdefault(node["file"], []).append(node)
+    snippets = {}
+    for node_file, members in grouped.items():
+        try:
+            lines = _source_lines(node_file, codebase_dir)
+        except (FileNotFoundError, OSError):
+            continue
+        for node in members:
+            snippets[node["id"]] = _slice_lines(node, lines)
+    return snippets
 
 
 @dataclass
@@ -193,6 +252,8 @@ def staleness_report(graph: CodeGraph, codebase_dir: Path | None = None) -> Stal
         stored = node.get("hash")
         if not path.exists():
             missing.append(node["file"])
+        elif path.stat().st_size > config.MAX_SOURCE_FILE_BYTES:
+            changed.append(node["file"])
         elif not stored:
             unverifiable.append(node["file"])
         elif _hash_text(path.read_text(encoding="utf-8", errors="replace")) != stored:

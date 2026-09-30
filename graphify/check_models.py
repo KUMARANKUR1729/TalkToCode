@@ -8,6 +8,7 @@ inside the app, run:
     python -m graphify.check_models
 """
 import sys
+from urllib.parse import urlparse
 
 import requests
 from dotenv import load_dotenv
@@ -35,6 +36,14 @@ def probe_embed(api_key: str, model: str) -> str:
 
 def main() -> int:
     load_dotenv()
+    if not config.ALLOW_EXTERNAL_LLM:
+        print("External model access is disabled. Set GRAPHIFY_ALLOW_EXTERNAL_LLM=true "
+              "only in an approved environment before probing providers.")
+        return 2
+    host = (urlparse(config.MODELS_ENDPOINT).hostname or "").lower()
+    if host not in config.ALLOWED_LLM_HOSTS:
+        print("The configured model catalog endpoint is not allowlisted.")
+        return 2
     api_key = config.api_key()
     if not api_key:
         print("No NVIDIA_API_KEY found. Put it in .env first.")
@@ -45,8 +54,8 @@ def main() -> int:
                             headers={"Authorization": f"Bearer {api_key}"}, timeout=30)
         catalog = sorted(m["id"] for m in resp.json().get("data", [])) if resp.ok else []
         print(f"Catalog lists {len(catalog)} models (listing does not imply availability).")
-    except requests.RequestException as e:
-        print(f"Could not list models: {e}")
+    except requests.RequestException as exc:
+        print(f"Could not list models: {type(exc).__name__}")
 
     print("\nChat models:")
     for model in config.KNOWN_MODELS:

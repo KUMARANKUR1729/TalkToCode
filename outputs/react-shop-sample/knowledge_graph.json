@@ -6,13 +6,16 @@
     "languages": {
       "javascript": 6
     },
-    "source_path": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase/react-shop-sample",
+    "source_path": "react-shop-sample",
     "hash": "b89809c932eeea78",
-    "generated_at": "2026-09-17T08:10:03.417962+00:00",
+    "generated_at": "2026-09-30T11:08:22.162666+00:00",
     "node_count": 19,
     "edge_count": 53,
     "parse_failures": [],
-    "codebase_root": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase"
+    "codebase_root": ".",
+    "parser_version": "1",
+    "build_status": "complete",
+    "artifact_id": "3b35e0d905090263d34090e8"
   },
   "nodes": [
     {

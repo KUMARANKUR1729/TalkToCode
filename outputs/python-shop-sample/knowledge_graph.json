@@ -6,13 +6,16 @@
     "languages": {
       "python": 6
     },
-    "source_path": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase/python-shop-sample",
+    "source_path": "python-shop-sample",
     "hash": "c10f6d43911529f4",
-    "generated_at": "2026-09-17T08:10:03.406357+00:00",
+    "generated_at": "2026-09-30T11:08:22.091143+00:00",
     "node_count": 33,
     "edge_count": 66,
     "parse_failures": [],
-    "codebase_root": "C:/Users/Kumar/Downloads/graphify_option1/graphify_option1/codebase"
+    "codebase_root": ".",
+    "parser_version": "1",
+    "build_status": "complete",
+    "artifact_id": "8794f0cd75f46e02c649ee8c"
   },
   "nodes": [
     {

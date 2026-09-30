@@ -3,8 +3,12 @@
 .env.*
 !.env.example
 
-# Generated embedding caches (rebuildable from the graph)
+# Generated embedding caches and immutable local artifact history
 outputs/*/embeddings.json
+outputs/*/versions/
+outputs/*/*.previous.json
+outputs/*/*.previous.json.sha256
+outputs/*/*.lock
 
 venv/
 .venv/
